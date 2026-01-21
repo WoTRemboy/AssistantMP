@@ -8,5 +8,13 @@
 import SwiftUI
 
 extension Image {
-    
+    enum Dashboard {
+        static let notification = Image("DashboardNotification")
+        
+        enum Sections {
+            static let jobs = Image("DashboardTileJobs")
+            static let games = Image("DashboardTileGames")
+            static let friends = Image("DashboardTileFriends")
+        }
+    }
 }
