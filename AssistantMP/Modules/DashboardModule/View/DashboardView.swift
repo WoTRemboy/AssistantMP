@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DashboardView: View {
     internal var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             groupTiles
+            dashboardHouseView
         }
     }
     
@@ -21,6 +22,11 @@ struct DashboardView: View {
             }
         }
         .padding(.horizontal)
+    }
+    
+    private var dashboardHouseView: some View {
+        DashboardHouseView(type: .locked)
+            .padding(.horizontal)
     }
 }
 

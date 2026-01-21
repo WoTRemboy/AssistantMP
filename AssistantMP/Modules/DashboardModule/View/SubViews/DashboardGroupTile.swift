@@ -26,7 +26,7 @@ struct DashboardGroupTile: View {
         
         .background {
             RoundedRectangle(cornerRadius: 5, style: .continuous)
-                .fill(Color.LabelColors.labelDisable)
+                .fill(Color(.systemGray5))
         }
         .mask {
             RoundedRectangle(cornerRadius: 5, style: .continuous)

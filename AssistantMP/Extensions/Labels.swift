@@ -21,5 +21,10 @@ final class Texts {
             static let games = "Coming Soon"
             static let friends = "Группы"
         }
+        
+        enum House {
+            static let title = "Дом"
+            static let more = "Ещё"
+        }
     }
 }
