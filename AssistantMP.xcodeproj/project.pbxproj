@@ -33,6 +33,7 @@
 		635B00F42F21608800B61D43 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		635B00F62F21655F00B61D43 /* DashboardHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHouseView.swift; sourceTree = "<group>"; };
 		635B00F82F2171AF00B61D43 /* DashboardHouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHouseModel.swift; sourceTree = "<group>"; };
+		635B00FA2F21874300B61D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F1BA5F2F21520800786BCF /* DashboardGroupTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGroupTile.swift; sourceTree = "<group>"; };
 		63F1BA612F2153ED00786BCF /* DashboardGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGroupModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +72,7 @@
 				6315ECA62F1FDE8200DC595D /* Modules */,
 				6315ECA92F1FE0BF00DC595D /* Extensions */,
 				6315ECA42F1FDE5800DC595D /* SupportFilles */,
+				635B00FA2F21874300B61D43 /* Info.plist */,
 			);
 			path = AssistantMP;
 			sourceTree = "<group>";
@@ -376,7 +378,9 @@
 				DEVELOPMENT_TEAM = 24X97P3SFF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AssistantMP/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Assistant;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -417,7 +421,9 @@
 				DEVELOPMENT_TEAM = 24X97P3SFF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AssistantMP/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Assistant;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
