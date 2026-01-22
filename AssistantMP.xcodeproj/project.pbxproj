@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		63095F262F22505200395EE7 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F252F22505200395EE7 /* SplashScreenView.swift */; };
 		63095F282F22517100395EE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F272F22517100395EE7 /* ContentView.swift */; };
+		63095F2C2F22592C00395EE7 /* DashboardBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F2B2F22592C00395EE7 /* DashboardBankView.swift */; };
+		63095F2E2F225D9900395EE7 /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F2D2F225D8F00395EE7 /* NumberFormatterExtension.swift */; };
+		63095F312F2260CC00395EE7 /* CountingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F302F2260C600395EE7 /* CountingTextView.swift */; };
 		6315EC9F2F1FDD9E00DC595D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6315EC9B2F1FDD9E00DC595D /* Assets.xcassets */; };
 		6315ECA02F1FDD9E00DC595D /* AssistantMPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6315EC9C2F1FDD9E00DC595D /* AssistantMPApp.swift */; };
 		6315ECA12F1FDD9E00DC595D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6315EC9D2F1FDD9E00DC595D /* DashboardView.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		63095F252F22505200395EE7 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		63095F272F22517100395EE7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		63095F2B2F22592C00395EE7 /* DashboardBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBankView.swift; sourceTree = "<group>"; };
+		63095F2D2F225D8F00395EE7 /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
+		63095F302F2260C600395EE7 /* CountingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingTextView.swift; sourceTree = "<group>"; };
 		6315EC8D2F1FDD9100DC595D /* AssistantMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistantMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6315EC9B2F1FDD9E00DC595D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6315EC9C2F1FDD9E00DC595D /* AssistantMPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantMPApp.swift; sourceTree = "<group>"; };
@@ -61,6 +67,14 @@
 			path = OpeningModule;
 			sourceTree = "<group>";
 		};
+		63095F2F2F22609600395EE7 /* CommonElements */ = {
+			isa = PBXGroup;
+			children = (
+				63095F302F2260C600395EE7 /* CountingTextView.swift */,
+			);
+			path = CommonElements;
+			sourceTree = "<group>";
+		};
 		6315EC842F1FDD9100DC595D = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +96,7 @@
 			children = (
 				6315ECA52F1FDE7100DC595D /* Application */,
 				6315ECA62F1FDE8200DC595D /* Modules */,
+				63095F2F2F22609600395EE7 /* CommonElements */,
 				6315ECA92F1FE0BF00DC595D /* Extensions */,
 				6315ECA42F1FDE5800DC595D /* SupportFilles */,
 				635B00FA2F21874300B61D43 /* Info.plist */,
@@ -141,6 +156,7 @@
 				6315ECAC2F1FE15300DC595D /* ImageExtension.swift */,
 				6315ECAF2F1FE18400DC595D /* Labels.swift */,
 				6315ECB12F1FE1BD00DC595D /* ViewExtension.swift */,
+				63095F2D2F225D8F00395EE7 /* NumberFormatterExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +183,7 @@
 			children = (
 				63F1BA5F2F21520800786BCF /* DashboardGroupTile.swift */,
 				635B00F62F21655F00B61D43 /* DashboardHouseView.swift */,
+				63095F2B2F22592C00395EE7 /* DashboardBankView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -244,13 +261,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6315ECB22F1FE1C000DC595D /* ViewExtension.swift in Sources */,
+				63095F2C2F22592C00395EE7 /* DashboardBankView.swift in Sources */,
 				6315ECAB2F1FE0D000DC595D /* ColorExtension.swift in Sources */,
 				635B00F72F21655F00B61D43 /* DashboardHouseView.swift in Sources */,
 				63F1BA622F21540800786BCF /* DashboardGroupModel.swift in Sources */,
 				635B00F92F2171B700B61D43 /* DashboardHouseModel.swift in Sources */,
 				635B00F52F21608C00B61D43 /* DashboardViewModel.swift in Sources */,
 				6315ECB02F1FE18500DC595D /* Labels.swift in Sources */,
+				63095F312F2260CC00395EE7 /* CountingTextView.swift in Sources */,
 				6315ECA02F1FDD9E00DC595D /* AssistantMPApp.swift in Sources */,
+				63095F2E2F225D9900395EE7 /* NumberFormatterExtension.swift in Sources */,
 				6315ECA12F1FDD9E00DC595D /* DashboardView.swift in Sources */,
 				6315ECAD2F1FE15C00DC595D /* ImageExtension.swift in Sources */,
 				63095F282F22517100395EE7 /* ContentView.swift in Sources */,

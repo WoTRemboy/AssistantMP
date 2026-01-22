@@ -14,18 +14,18 @@ enum DashboardHouse {
     internal var title: String {
         switch self {
         case .locked:
-            "Закрыт"
+            Texts.Dashboard.House.Locked.title
         case .unlocked:
-            "Открыт"
+            Texts.Dashboard.House.Unlocked.title
         }
     }
     
     internal var actionTitle: String {
         switch self {
         case .locked:
-            "Открыть дом"
+            Texts.Dashboard.House.Locked.action
         case .unlocked:
-            "Закрыть дом"
+            Texts.Dashboard.House.Unlocked.action
         }
     }
     

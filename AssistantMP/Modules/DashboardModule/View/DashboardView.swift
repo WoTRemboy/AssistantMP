@@ -12,6 +12,7 @@ struct DashboardView: View {
         ScrollView(.vertical, showsIndicators: false) {
             groupTiles
             dashboardHouseView
+            dashboardBankView
         }
     }
     
@@ -26,6 +27,11 @@ struct DashboardView: View {
     
     private var dashboardHouseView: some View {
         DashboardHouseView(type: .locked)
+            .padding(.horizontal)
+    }
+    
+    private var dashboardBankView: some View {
+        DashboardBankView()
             .padding(.horizontal)
     }
 }
