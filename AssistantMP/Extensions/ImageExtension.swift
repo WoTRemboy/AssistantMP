@@ -8,6 +8,10 @@
 import SwiftUI
 
 extension Image {
+    enum Opening {
+        static let logo = Image("SplashScreenLogo")
+    }
+    
     enum Dashboard {
         static let notification = Image("DashboardNotification")
         static let info = Image("DashboardInfo")
