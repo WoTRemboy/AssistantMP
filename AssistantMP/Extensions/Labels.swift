@@ -54,5 +54,16 @@ final class Texts {
             static let expired = "Истекает"
             static let sold = "Продано"
         }
+        
+        enum Referal {
+            static let title = "Реферальная программа"
+            static let link = "Поделиться ссылкой"
+        }
+        
+        enum Security {
+            static let title = "Настройки безопасности"
+            static let password = "Смена пароля"
+            static let twoFactor = "2FA"
+        }
     }
 }

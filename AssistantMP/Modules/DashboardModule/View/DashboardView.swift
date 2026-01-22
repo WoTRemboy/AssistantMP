@@ -12,10 +12,13 @@ struct DashboardView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
                 groupTiles
-                dashboardHouseView
-                dashboardBankView
-                dashboardMarketView
+                DashboardHouseView(type: .locked)
+                DashboardBankView()
+                DashboardMarketView()
+                DashboardReferalView()
+                DashboardSecurityView()
             }
+            .padding(.horizontal)
         }
     }
     
@@ -25,22 +28,6 @@ struct DashboardView: View {
                 DashboardGroupTile(type: type, notification: true)
             }
         }
-        .padding(.horizontal)
-    }
-    
-    private var dashboardHouseView: some View {
-        DashboardHouseView(type: .locked)
-            .padding(.horizontal)
-    }
-    
-    private var dashboardBankView: some View {
-        DashboardBankView()
-            .padding(.horizontal)
-    }
-    
-    private var dashboardMarketView: some View {
-        DashboardMarketView()
-            .padding(.horizontal)
     }
 }
 

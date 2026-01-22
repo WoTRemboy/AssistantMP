@@ -33,5 +33,9 @@ extension Image {
             static let sold = Image("DashboardMarketSoldStatus")
             static let remove = Image("DashboardMarketRemovePosition")
         }
+        
+        enum Referal {
+            static let share = Image("DashboardReferalLink")
+        }
     }
 }

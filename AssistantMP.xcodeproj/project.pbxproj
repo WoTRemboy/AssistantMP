@@ -17,6 +17,8 @@
 		63095F372F22791900395EE7 /* DashboardMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F362F22791100395EE7 /* DashboardMarketModel.swift */; };
 		63095F3A2F227A1D00395EE7 /* DashboardMarketItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F392F227A1900395EE7 /* DashboardMarketItemCard.swift */; };
 		63095F3C2F228A8D00395EE7 /* CountToDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F3B2F228A8900395EE7 /* CountToDateView.swift */; };
+		63095F3E2F2291A900395EE7 /* DashboardReferalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F3D2F2291A900395EE7 /* DashboardReferalView.swift */; };
+		63095F402F22947C00395EE7 /* DashboardSecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63095F3F2F22947C00395EE7 /* DashboardSecurityView.swift */; };
 		6315EC9F2F1FDD9E00DC595D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6315EC9B2F1FDD9E00DC595D /* Assets.xcassets */; };
 		6315ECA02F1FDD9E00DC595D /* AssistantMPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6315EC9C2F1FDD9E00DC595D /* AssistantMPApp.swift */; };
 		6315ECA12F1FDD9E00DC595D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6315EC9D2F1FDD9E00DC595D /* DashboardView.swift */; };
@@ -42,6 +44,8 @@
 		63095F362F22791100395EE7 /* DashboardMarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMarketModel.swift; sourceTree = "<group>"; };
 		63095F392F227A1900395EE7 /* DashboardMarketItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMarketItemCard.swift; sourceTree = "<group>"; };
 		63095F3B2F228A8900395EE7 /* CountToDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountToDateView.swift; sourceTree = "<group>"; };
+		63095F3D2F2291A900395EE7 /* DashboardReferalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardReferalView.swift; sourceTree = "<group>"; };
+		63095F3F2F22947C00395EE7 /* DashboardSecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSecurityView.swift; sourceTree = "<group>"; };
 		6315EC8D2F1FDD9100DC595D /* AssistantMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssistantMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6315EC9B2F1FDD9E00DC595D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6315EC9C2F1FDD9E00DC595D /* AssistantMPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantMPApp.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 				63F1BA5F2F21520800786BCF /* DashboardGroupTile.swift */,
 				635B00F62F21655F00B61D43 /* DashboardHouseView.swift */,
 				63095F2B2F22592C00395EE7 /* DashboardBankView.swift */,
+				63095F3D2F2291A900395EE7 /* DashboardReferalView.swift */,
+				63095F3F2F22947C00395EE7 /* DashboardSecurityView.swift */,
 				63095F382F227A0700395EE7 /* MarketSubviews */,
 			);
 			path = SubViews;
@@ -303,7 +309,9 @@
 				63095F3C2F228A8D00395EE7 /* CountToDateView.swift in Sources */,
 				63095F282F22517100395EE7 /* ContentView.swift in Sources */,
 				63F1BA602F21520800786BCF /* DashboardGroupTile.swift in Sources */,
+				63095F402F22947C00395EE7 /* DashboardSecurityView.swift in Sources */,
 				63095F262F22505200395EE7 /* SplashScreenView.swift in Sources */,
+				63095F3E2F2291A900395EE7 /* DashboardReferalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
