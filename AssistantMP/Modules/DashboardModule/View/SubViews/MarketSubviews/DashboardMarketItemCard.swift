@@ -30,8 +30,7 @@ struct MarketItemCard: View {
     
     private var previewView: some View {
         ZStack(alignment: mode == .general ? .bottomLeading : .bottomTrailing) {
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(Color.BackColors.backDefault)
+            SceletonView(.rect(cornerRadius: 14))
                 .frame(width: 130, height: 120)
 
             if mode == .general {
