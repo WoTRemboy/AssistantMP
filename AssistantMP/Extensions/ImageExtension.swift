@@ -26,5 +26,12 @@ extension Image {
             static let locked = Image("DashboardHouseLocked")
             static let unlocked = Image("DashboardHouseUnlocked")
         }
+        
+        enum Market {
+            static let active = Image("DashboardMarketActiveStatus")
+            static let expiring = Image("DashboardMarketExpiringStatus")
+            static let sold = Image("DashboardMarketSoldStatus")
+            static let remove = Image("DashboardMarketRemovePosition")
+        }
     }
 }

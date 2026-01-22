@@ -42,5 +42,17 @@ final class Texts {
             static let title = "Банк"
             static let action = "Перевести"
         }
+        
+        enum Market {
+            static let title = "Маркетплейс"
+            static let count = "шт."
+            
+            static let general = "Основные"
+            static let sale = "Свои"
+            
+            static let active = "Активно"
+            static let expired = "Истекает"
+            static let sold = "Продано"
+        }
     }
 }

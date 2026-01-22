@@ -10,9 +10,12 @@ import SwiftUI
 struct DashboardView: View {
     internal var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            groupTiles
-            dashboardHouseView
-            dashboardBankView
+            VStack(spacing: 16) {
+                groupTiles
+                dashboardHouseView
+                dashboardBankView
+                dashboardMarketView
+            }
         }
     }
     
@@ -32,6 +35,11 @@ struct DashboardView: View {
     
     private var dashboardBankView: some View {
         DashboardBankView()
+            .padding(.horizontal)
+    }
+    
+    private var dashboardMarketView: some View {
+        DashboardMarketView()
             .padding(.horizontal)
     }
 }
