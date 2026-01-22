@@ -23,7 +23,6 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.BackColors.backDefault)
-        .ignoresSafeArea()
         .task {
             guard showsSplashScreen else { return }
             try? await Task.sleep(for: .seconds(0.5))

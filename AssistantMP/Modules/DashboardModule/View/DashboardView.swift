@@ -20,6 +20,13 @@ struct DashboardView: View {
             }
             .padding(.horizontal)
         }
+        .safeAreaInset(edge: .bottom) {
+            bottomActionBar
+                .background(Color.BackColors.backDefault)
+        }
+        .safeAreaInset(edge: .top) {
+            DashboardCustomNavBar(username: nil)
+        }
     }
     
     private var groupTiles: some View {
@@ -28,6 +35,29 @@ struct DashboardView: View {
                 DashboardGroupTile(type: type, notification: true)
             }
         }
+    }
+    
+    private var bottomActionBar: some View {
+        Button {
+            
+        } label: {
+            HStack(spacing: 10) {
+                Image.Dashboard.currency
+                Text(Texts.Dashboard.wallet)
+                    .font(.system(size: 18, weight: .bold))
+            }
+            .foregroundStyle(Color.LabelColors.labelWhite)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .background(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(Color.black)
+        )
+        .padding(.horizontal)
+        .padding(.top, 8)
     }
 }
 

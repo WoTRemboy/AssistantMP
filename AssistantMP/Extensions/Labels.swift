@@ -17,6 +17,7 @@ final class Texts {
     
     enum Dashboard {
         static let more = "Ещё"
+        static let wallet = "Пополнить баланс"
         
         enum Sections {
             static let jobs = "Coming Soon"

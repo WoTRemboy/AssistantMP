@@ -12,9 +12,21 @@ extension Image {
         static let logo = Image("SplashScreenLogo")
     }
     
+    enum Navbar {
+        static let gift = Image("NavbarGift")
+        static let bank = Image("NavbarBank")
+        static let settings = Image("NavbarSettings")
+    }
+    
+    enum Chevron {
+        static let forward = Image("ChevronForward")
+        static let backward = Image("ChevronBackward")
+    }
+    
     enum Dashboard {
         static let notification = Image("DashboardNotification")
         static let info = Image("DashboardInfo")
+        static let currency = Image("DashboardCurrency")
         
         enum Sections {
             static let jobs = Image("DashboardTileJobs")
