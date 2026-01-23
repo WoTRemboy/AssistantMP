@@ -67,4 +67,11 @@ final class Texts {
             static let twoFactor = "2FA"
         }
     }
+    
+    enum Profile {
+        static let xp = "Опыт"
+        static let level = "Уровень"
+        static let bank = "Банк"
+        static let cash = "Наличные"
+    }
 }

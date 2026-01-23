@@ -50,4 +50,9 @@ extension Image {
             static let share = Image("DashboardReferalLink")
         }
     }
+    
+    enum Profile {
+        static let placeholder = Image("ProfileIconPlaceholder")
+        static let edit = Image("ProfileNameEdit")
+    }
 }
