@@ -54,5 +54,6 @@ extension Image {
     enum Profile {
         static let placeholder = Image("ProfileIconPlaceholder")
         static let edit = Image("ProfileNameEdit")
+        static let clock = Image("ProfileTimeLeftClock")
     }
 }

@@ -13,8 +13,12 @@ struct ProfileView: View {
             VStack(spacing: 16) {
                 AccountInfoView(user: .sample)
                 AccountBankView(user: .sample)
+                AccountPropertyView()
             }
             .padding(.horizontal)
+        }
+        .safeAreaInset(edge: .top) {
+            DashboardCustomNavBar(username: nil)
         }
     }
 }
