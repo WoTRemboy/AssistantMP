@@ -20,7 +20,9 @@ struct ContentView: View {
     internal var body: some View {
         NavigationStack(path: bindingForTab(.main)) {
             TabItems.mainTab(appRouter: appRouter)
+                .navigationBarHidden(true)
         }
+        
     }
 }
 

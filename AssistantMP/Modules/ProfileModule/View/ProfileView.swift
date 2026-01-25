@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    private let user: User = .sample
+    
     internal var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
-                AccountInfoView(user: .sample)
-                AccountBankView(user: .sample)
+                AccountInfoView(user: user)
+                AccountBankView(user: user)
                 AccountPropertyView()
             }
             .padding(.horizontal)
+            .navigationBarHidden(true)
         }
         .safeAreaInset(edge: .top) {
-            DashboardCustomNavBar(username: nil)
+            ProfileCustomNavBar()
         }
     }
 }
