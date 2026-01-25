@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DashboardCustomNavBar: View {
+    
+    @EnvironmentObject private var appRouter: AppRouter
+    
     private let username: String
     
     init(username: String?) {
@@ -17,7 +20,7 @@ struct DashboardCustomNavBar: View {
     internal var body: some View {
         HStack(spacing: 0) {
             Button {
-                
+                appRouter.push(.profile, in: .main)
             } label: {
                 HStack(spacing: 8) {
                     profileIcon
