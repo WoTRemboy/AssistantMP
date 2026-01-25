@@ -11,7 +11,7 @@ import SwiftUI
 struct AssistantMPApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TransitionView()
                 .preferredColorScheme(.light)
         }
     }
