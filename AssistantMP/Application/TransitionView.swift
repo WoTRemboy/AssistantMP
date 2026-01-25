@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  TransitionView.swift
 //  AssistantMP
 //
-//  Created by Roman Tverdokhleb on 22/01/2026.
+//  Created by Roman Tverdokhleb on 25/01/2026.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct TransitionView: View {
     
     @State private var showsSplashScreen: Bool = true
     
@@ -17,7 +17,7 @@ struct ContentView: View {
                 SplashScreenView()
                     .transition(CustomSplashTransition(isRoot: false))
             } else {
-                DashboardView()
+                ContentView()
                     .transition(CustomSplashTransition(isRoot: true))
             }
         }
@@ -41,5 +41,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TransitionView()
 }
