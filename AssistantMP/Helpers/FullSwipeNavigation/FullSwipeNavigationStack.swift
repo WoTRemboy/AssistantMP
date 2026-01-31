@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct FullSwipeNavigationStack<Content: View>: View {
+struct FullSwipeNavigationStack<PathElement: Hashable, Content: View>: View {
+    @Binding private var path: [PathElement]
+    
     @ViewBuilder var content: Content
     
     @State private var customGesture: UIPanGestureRecognizer = {
@@ -17,8 +19,18 @@ struct FullSwipeNavigationStack<Content: View>: View {
         return gesture
     }()
     
+    init(path: Binding<[PathElement]>, @ViewBuilder content: () -> Content) {
+        self._path = path
+        self.content = content()
+    }
+
+    init(@ViewBuilder content: () -> Content) {
+        self._path = .constant([])
+        self.content = content()
+    }
+    
     internal var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             content
                 .background {
                     AttachGestureView(gesture: $customGesture)
@@ -42,7 +54,5 @@ extension View {
 }
 
 #Preview {
-    FullSwipeNavigationStack {
-        ContentView()
-    }
+    ContentView()
 }
