@@ -24,6 +24,7 @@ struct ProfileView: View {
         .safeAreaInset(edge: .top) {
             ProfileCustomNavBar()
         }
+        .enableFillSwipePop(true)
     }
 }
 
