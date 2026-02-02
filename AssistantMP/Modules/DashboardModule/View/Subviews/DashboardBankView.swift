@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardBankView: View {
     
+    @EnvironmentObject private var appRouter: AppRouter
     @State private var didAnimate: Bool = false
     
     private let amount: Int = 12500000
@@ -43,11 +44,19 @@ struct DashboardBankView: View {
                 .padding(.horizontal, 6)
             
             Spacer()
-            
+            moreButton
+        }
+    }
+    
+    private var moreButton: some View {
+        Button {
+            appRouter.push(.bank, in: .main)
+        } label: {
             Text(Texts.Dashboard.more)
                 .font(.system(size: 18, weight: .regular))
                 .foregroundStyle(Color.accentColor)
         }
+        .contentShape(.rect)
     }
     
     private var cardView: some View {
@@ -105,4 +114,5 @@ struct DashboardBankView: View {
 
 #Preview {
     DashboardBankView()
+        .environmentObject(AppRouter())
 }

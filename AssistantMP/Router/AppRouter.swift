@@ -21,6 +21,7 @@ final class AppRouter: ObservableObject {
         case dashboard
         case profile
         case property
+        case bank
     }
     
     internal func push(_ route: Route, in tab: Tab) {

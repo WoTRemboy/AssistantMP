@@ -99,4 +99,20 @@ final class Texts {
         static let date = "Оплата истекает"
         static let remaining = "Осталось"
     }
+    
+    enum Bank {
+        static let title = "Банковское приложение"
+        static let titleShort = "Банк"
+        static let balance = "Текущий баланс"
+        
+        static let topUp = "Пополнить"
+        static let transfer = "Перевести"
+        
+        enum Transaction {
+            static let title = "Последние транзакции"
+            static let income = "Пополнение"
+            static let transfer = "Перевод"
+            static let housePayment = "Оплата дома"
+        }
+    }
 }
