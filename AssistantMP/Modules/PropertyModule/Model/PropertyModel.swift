@@ -49,12 +49,12 @@ enum PropertyCategory: String, CaseIterable, Identifiable {
 
 extension PropertyItem {
     static internal var sample: PropertyItem {
-        PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 2, 10), lockStatus: .unlocked, accentColor: .gray)
+        PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink)
     }
     
     static internal var sampleList: [PropertyItem] {
         [
-            PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 5), lockStatus: .locked, accentColor: .pink),
+            PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink),
             PropertyItem(title: "Юго-восточная, 55", paymentDate: Date.makeDate(2026, 2, 25), lockStatus: .unlocked, accentColor: .gray),
             PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 2, 10), lockStatus: .unlocked, accentColor: .gray)
         ]
@@ -64,7 +64,7 @@ extension PropertyItem {
     static internal var sampleSections: [PropertyCategory: [PropertyItem]] {
         [
             .home: [
-                PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 5), lockStatus: .locked, accentColor: .pink),
+                PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink),
                 PropertyItem(title: "Юго-восточная, 55", paymentDate: Date.makeDate(2026, 2, 25), lockStatus: .unlocked, accentColor: .gray),
                 PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 2, 10), lockStatus: .unlocked, accentColor: .gray)
             ],

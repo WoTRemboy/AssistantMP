@@ -92,6 +92,9 @@ final class Texts {
         static let status = "Статус дома"
         
         static let warning = "Внимание! Срок оплаты дома истекает через"
+        static let warningShort = "Срок оплаты дома истекает через"
+        static let warningError = "Посмотрите срок оплаты в разделе \"Дом\""
+        
         static let deadline = "Срок оплаты"
         static let date = "Оплата истекает"
         static let remaining = "Осталось"

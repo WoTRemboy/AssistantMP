@@ -18,6 +18,11 @@ extension Image {
         static let settings = Image("NavbarSettings")
     }
     
+    enum Alert {
+        static let warning = Image("AlertWarning")
+        static let dismiss = Image("AlertDismiss")
+    }
+    
     enum Chevron {
         static let forward = Image("ChevronForward")
         static let backward = Image("ChevronBackward")
