@@ -46,4 +46,13 @@ extension DateFormatter {
         df.timeStyle = .none
         return df
     }()
+    
+    static let dayMonthYearTime: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = .autoupdatingCurrent
+        df.timeZone = .autoupdatingCurrent
+        df.dateStyle = .short
+        df.timeStyle = .short
+        return df
+    }()
 }

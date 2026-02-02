@@ -73,4 +73,15 @@ extension Image {
         static let person = Image("PropertyPerson")
         static let time = Image("PropertyTime")
     }
+    
+    enum Bank {
+        static let coin = Image("BankCoin")
+        static let person = Image("BankPerson")
+        
+        enum Operations {
+            static let income = Image("BankIncome")
+            static let transfer = Image("BankTransfer")
+            static let housePayment = Image("BankHousePayment")
+        }
+    }
 }
