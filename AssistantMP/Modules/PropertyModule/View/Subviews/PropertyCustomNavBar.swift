@@ -1,22 +1,22 @@
 //
-//  ProfileCustomNavBar.swift
+//  PropertyCustomNavBar.swift
 //  AssistantMP
 //
-//  Created by Roman Tverdokhleb on 25/01/2026.
+//  Created by Roman Tverdokhleb on 01/02/2026.
 //
 
 import SwiftUI
 
-struct ProfileCustomNavBar: View {
+struct PropertyCustomNavBar: View {
     
     @EnvironmentObject private var appRouter: AppRouter
     
-    private let username: String
-    private let start: CGFloat = 50
+    private let title: String
+    private let start: CGFloat = 30
     private let offset: CGFloat
 
-    init(username: String?, offset: CGFloat) {
-        self.username = username ?? "Username"
+    init(title: String, offset: CGFloat) {
+        self.title = title
         self.offset = offset
     }
 
@@ -34,12 +34,12 @@ struct ProfileCustomNavBar: View {
             }
             .buttonStyle(.plain)
         } center: {
-            Text(username)
+            Text(title)
                 .font(.system(size: 20, weight: .bold))
                 .lineLimit(1)
         } trailing: {
             HStack(spacing: 16) {
-                ForEach(NavbarAction.allCases, id: \.self) { type in
+                ForEach(NavbarAction.giftBankCases, id: \.self) { type in
                     IconCircleButton(type: type)
                 }
             }
@@ -48,6 +48,8 @@ struct ProfileCustomNavBar: View {
 }
 
 #Preview {
-    ProfileCustomNavBar(username: "Username", offset: 0)
+    PropertyCustomNavBar(title: Texts.Property.title, offset: 0)
         .environmentObject(AppRouter())
 }
+
+

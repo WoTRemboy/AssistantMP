@@ -1,5 +1,5 @@
 //
-//  AccountPropertyTimeLeftBar.swift
+//  PropertyTimeLeftBar.swift
 //  AssistantMP
 //
 //  Created by Roman Tverdokhleb on 24/01/2026.
@@ -7,15 +7,17 @@
 
 import SwiftUI
 
-struct AccountPropertyTimeLeftBar: View {
+struct PropertyTimeLeftBar: View {
     
     @State private var displayedFraction: CGFloat = 1.0
     
     private let fraction: CGFloat
+    private let height: CGFloat
     private let style: PropertyWarningStyle
     
-    init(fraction: CGFloat, style: PropertyWarningStyle) {
+    init(fraction: CGFloat, height: CGFloat = 6, style: PropertyWarningStyle) {
         self.fraction = fraction
+        self.height = height
         self.style = style
     }
 
@@ -29,7 +31,7 @@ struct AccountPropertyTimeLeftBar: View {
                     .frame(width: max(4, geo.size.width * displayedFraction))
             }
         }
-        .frame(height: 6)
+        .frame(height: height)
         .onAppear {
             displayedFraction = 1.0
             DispatchQueue.main.async {
@@ -47,5 +49,5 @@ struct AccountPropertyTimeLeftBar: View {
 }
 
 #Preview {
-    AccountPropertyTimeLeftBar(fraction: 15, style: .info)
+    PropertyTimeLeftBar(fraction: 15, style: .info)
 }

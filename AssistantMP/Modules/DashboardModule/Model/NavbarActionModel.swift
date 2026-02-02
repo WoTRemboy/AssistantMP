@@ -22,4 +22,8 @@ enum NavbarAction: CaseIterable {
             Image.Navbar.settings
         }
     }
+    
+    static internal var giftBankCases: [NavbarAction] {
+        [.gift, .bank]
+    }
 }
