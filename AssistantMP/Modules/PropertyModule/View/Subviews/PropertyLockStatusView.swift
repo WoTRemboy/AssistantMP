@@ -38,7 +38,6 @@ struct PropertyLockStatusView: View {
             Text(lockStatus.title)
                 .font(.system(size: 20, weight: .bold))
                 .foregroundStyle(Color.LabelColors.labelPrimary)
-                .contentTransition(.numericText())
             
             Text(Texts.Property.status)
                 .font(.system(size: 16, weight: .regular))
@@ -56,7 +55,6 @@ struct PropertyLockStatusView: View {
             Text(lockStatus.actionTitleFull)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundStyle(Color.LabelColors.labelReversed)
-                .contentTransition(.numericText())
             
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)

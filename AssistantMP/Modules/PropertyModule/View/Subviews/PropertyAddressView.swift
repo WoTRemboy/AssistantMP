@@ -68,7 +68,6 @@ struct PropertyAddressView: View {
         Button {
             withAnimation(.smooth(duration: 0.2)) {
                 viewModel.selectedProperty = property
-                viewModel.showAddressPickerToggle()
             }
         } label: {
             HStack(spacing: 12) {

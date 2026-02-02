@@ -57,9 +57,12 @@ struct PropertyPaymentSection: View {
                         .font(.system(size: 20, weight: .bold))
                         .foregroundStyle(Color.LabelColors.labelPrimary)
                     
-                    HStack {
+                    HStack(spacing: 12) {
                         paymentPill
+                            .fixedSize(horizontal: true, vertical: false)
+                            .layoutPriority(1)
                         paymentDateView
+                            .layoutPriority(0)
                     }
                     
                 }
