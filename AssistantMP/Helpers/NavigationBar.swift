@@ -38,12 +38,12 @@ struct NavigationBar<Leading : View, Center : View, Trailing : View> : View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack(spacing: 8) {
+            HStack(spacing: 16) {
                 leading
                     .frame(alignment: .leading)
 
                 center
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .opacity(opacity)
 
                 trailing
@@ -108,6 +108,13 @@ extension NavigationBar where Leading == EmptyView, Center : View, Trailing == E
             center: center,
             trailing: { EmptyView() }
         )
+    }
+}
+
+struct HeaderBottomPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = min(value, nextValue())
     }
 }
 

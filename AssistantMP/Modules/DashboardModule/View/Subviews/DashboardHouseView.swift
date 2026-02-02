@@ -9,9 +9,11 @@ import SwiftUI
 
 struct DashboardHouseView: View {
     
-    private let type: DashboardHouse
+    @EnvironmentObject private var appRouter: AppRouter
     
-    init(type: DashboardHouse) {
+    private let type: PropertyLock
+    
+    init(type: PropertyLock) {
         self.type = type
     }
     
@@ -49,11 +51,19 @@ struct DashboardHouseView: View {
                 .padding(.horizontal, 6)
 
             Spacer()
-
+            moreButton
+        }
+    }
+    
+    private var moreButton: some View {
+        Button {
+            appRouter.push(.property, in: .main)
+        } label: {
             Text(Texts.Dashboard.more)
                 .font(.system(size: 18, weight: .regular))
                 .foregroundStyle(Color.accentColor)
         }
+        .contentShape(.rect)
     }
     
     private var cardView: some View {
@@ -111,4 +121,5 @@ struct DashboardHouseView: View {
 
 #Preview {
     DashboardHouseView(type: .locked)
+        .environmentObject(AppRouter())
 }

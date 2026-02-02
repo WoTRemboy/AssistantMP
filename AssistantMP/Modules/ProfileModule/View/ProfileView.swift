@@ -48,13 +48,6 @@ struct ProfileView: View {
     }
 }
 
-private struct HeaderBottomPreferenceKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = min(value, nextValue())
-    }
-}
-
 #Preview {
     ProfileView()
         .environmentObject(AppRouter())

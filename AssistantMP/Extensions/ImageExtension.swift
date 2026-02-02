@@ -21,6 +21,12 @@ extension Image {
     enum Chevron {
         static let forward = Image("ChevronForward")
         static let backward = Image("ChevronBackward")
+        static let down = Image("ChevronDown")
+    }
+    
+    enum Selector {
+        static let selected = Image(systemName: "largecircle.fill.circle")
+        static let unselected = Image(systemName: "circle")
     }
     
     enum Dashboard {
@@ -55,5 +61,11 @@ extension Image {
         static let placeholder = Image("ProfileIconPlaceholder")
         static let edit = Image("ProfileNameEdit")
         static let clock = Image("ProfileTimeLeftClock")
+    }
+    
+    enum Property {
+        static let location = Image("PropertyLocation")
+        static let person = Image("PropertyPerson")
+        static let time = Image("PropertyTime")
     }
 }

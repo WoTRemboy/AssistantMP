@@ -31,11 +31,13 @@ final class Texts {
             enum Unlocked {
                 static let title = "Открыто"
                 static let action = "Закрыть"
+                static let actionFull = "Закрыть дом"
             }
             
             enum Locked {
                 static let title = "Закрыто"
                 static let action = "Открыть"
+                static let actionFull = "Открыть дом"
             }
         }
         
@@ -81,5 +83,17 @@ final class Texts {
             static let business = "Бизнес"
             static let transport = "Транспорт"
         }
+    }
+    
+    enum Property {
+        static let title = "Информация о доме"
+        static let address = "Адрес"
+        static let owner = "Владелец"
+        static let status = "Статус дома"
+        
+        static let warning = "Внимание! Срок оплаты дома истекает через"
+        static let deadline = "Срок оплаты"
+        static let date = "Оплата истекает"
+        static let remaining = "Осталось"
     }
 }

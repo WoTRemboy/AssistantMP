@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "PropertyTimeIcon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

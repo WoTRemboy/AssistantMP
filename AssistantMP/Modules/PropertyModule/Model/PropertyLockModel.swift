@@ -1,5 +1,5 @@
 //
-//  DashboardHouseModel.swift
+//  PropertyLockModel.swift
 //  AssistantMP
 //
 //  Created by Roman Tverdokhleb on 21/01/2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum DashboardHouse {
+enum PropertyLock {
     case locked
     case unlocked
     
@@ -29,6 +29,15 @@ enum DashboardHouse {
         }
     }
     
+    internal var actionTitleFull: String {
+        switch self {
+        case .locked:
+            Texts.Dashboard.House.Locked.actionFull
+        case .unlocked:
+            Texts.Dashboard.House.Unlocked.actionFull
+        }
+    }
+    
     internal var icon: Image {
         switch self {
         case .locked:
@@ -42,6 +51,15 @@ enum DashboardHouse {
         switch self {
         case .locked: .green
         case .unlocked: .red
+        }
+    }
+    
+    internal mutating func toggle() {
+        switch self {
+        case .locked:
+            self = .unlocked
+        case .unlocked:
+            self = .locked
         }
     }
 }

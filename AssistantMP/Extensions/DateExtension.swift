@@ -12,6 +12,13 @@ extension Date {
         Calendar.current.date(from: DateComponents(year: y, month: m, day: d)) ?? Date()
     }
     
+    static func daysUntil(_ date: Date) -> Int {
+        let startOfToday = Calendar.current.startOfDay(for: Date())
+        let startOfTarget = Calendar.current.startOfDay(for: date)
+        let components = Calendar.current.dateComponents([.day], from: startOfToday, to: startOfTarget)
+        return max(0, components.day ?? 0)
+    }
+    
     static func daysRemaining(until date: Date) -> String {
         let calendar = Calendar.autoupdatingCurrent
         let startOfToday = calendar.startOfDay(for: Date())
