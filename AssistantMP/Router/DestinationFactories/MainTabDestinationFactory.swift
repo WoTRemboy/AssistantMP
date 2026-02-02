@@ -17,6 +17,14 @@ struct MainTabDestinationFactory {
         case .profile:
             ProfileView()
                 .environmentObject(appRouter)
+        
+        case .property:
+            PropertyView()
+                .environmentObject(appRouter)
+            
+        case .bank:
+            BankView()
+                .environmentObject(appRouter)
         }
     }
 }

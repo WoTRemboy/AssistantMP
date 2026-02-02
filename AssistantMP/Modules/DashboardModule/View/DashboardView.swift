@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct DashboardView: View {
+    
+    @StateObject private var viewModel = DashboardViewModel()
+    
     internal var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
                 groupTiles
-                DashboardHouseView(type: .locked)
+                DashboardHouseView(viewModel: viewModel)
                 DashboardBankView()
                 DashboardMarketView()
                 DashboardReferalView()
@@ -26,6 +29,13 @@ struct DashboardView: View {
         }
         .safeAreaInset(edge: .top) {
             DashboardCustomNavBar(username: nil)
+        }
+        .alert(isPresented: $viewModel.paymentAlertShow) {
+            paymentAlert
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Rectangle()
+                .fill(.primary.opacity(0.35))
         }
     }
     
@@ -59,8 +69,20 @@ struct DashboardView: View {
         .padding(.horizontal)
         .padding(.top, 8)
     }
+    
+    private var paymentAlert: some View {
+        CustomPaymentWarning(
+            title: "\(Texts.Property.address): \(viewModel.selectedProperty.title).",
+            content: Texts.Property.warningShort,
+            value: "\(Date.daysRemaining(until: viewModel.selectedProperty.paymentDate ?? .now))",
+            titleError: Texts.Property.warningError,
+            image: Image.Alert.warning) {
+                viewModel.paymentAlertShowToggle()
+            }
+    }
 }
 
 #Preview {
     DashboardView()
+        .environmentObject(AppRouter())
 }

@@ -20,6 +20,8 @@ final class AppRouter: ObservableObject {
     enum Route: Hashable {
         case dashboard
         case profile
+        case property
+        case bank
     }
     
     internal func push(_ route: Route, in tab: Tab) {

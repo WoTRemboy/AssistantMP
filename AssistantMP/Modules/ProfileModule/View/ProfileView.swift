@@ -9,24 +9,46 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @State private var offset: CGFloat = 0
     private let user: User = .sample
     
     internal var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
-                AccountInfoView(user: user)
+                infoView
                 AccountBankView(user: user)
                 AccountPropertyView()
             }
             .padding(.horizontal)
             .navigationBarHidden(true)
         }
-        .safeAreaInset(edge: .top) {
-            ProfileCustomNavBar()
+        .coordinateSpace(name: "scroll")
+        .onPreferenceChange(HeaderBottomPreferenceKey.self) { minY in
+            withAnimation(.easeInOut(duration: 0.2)) {
+                offset = minY
+            }
         }
+        .safeAreaInset(edge: .top) {
+            ProfileCustomNavBar(username: user.name, offset: offset)
+        }
+        .enableFillSwipePop(true)
+    }
+    
+    private var infoView: some View {
+        AccountInfoView(user: user)
+            .background(
+                GeometryReader { proxy in
+                    Color.clear
+                        .preference(
+                            key: HeaderBottomPreferenceKey.self,
+                            value: proxy.frame(in: .named("scroll")).minY
+                        )
+                }
+            )
     }
 }
 
 #Preview {
     ProfileView()
+        .environmentObject(AppRouter())
 }

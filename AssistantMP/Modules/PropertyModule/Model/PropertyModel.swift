@@ -8,17 +8,23 @@
 import Foundation
 import SwiftUI
 
-struct PropertyItem: Identifiable, Hashable {
+struct PropertyItem: Identifiable, Hashable, Equatable {
     let id: UUID
     var title: String
     var paymentDate: Date?
+    var lockStatus: PropertyLock?
     var accentColor: Color
 
-    init(id: UUID = UUID(), title: String, paymentDate: Date?, accentColor: Color) {
+    init(id: UUID = UUID(), title: String, paymentDate: Date?, lockStatus: PropertyLock? = nil, accentColor: Color) {
         self.id = id
         self.title = title
         self.paymentDate = paymentDate
+        self.lockStatus = lockStatus
         self.accentColor = accentColor
+    }
+    
+    static func == (lhs: PropertyItem, rhs: PropertyItem) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
@@ -43,16 +49,24 @@ enum PropertyCategory: String, CaseIterable, Identifiable {
 
 extension PropertyItem {
     static internal var sample: PropertyItem {
-        PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 1, 30), accentColor: .gray)
+        PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink)
+    }
+    
+    static internal var sampleList: [PropertyItem] {
+        [
+            PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink),
+            PropertyItem(title: "Юго-восточная, 55", paymentDate: Date.makeDate(2026, 2, 25), lockStatus: .unlocked, accentColor: .gray),
+            PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 2, 10), lockStatus: .unlocked, accentColor: .gray)
+        ]
     }
     
     
     static internal var sampleSections: [PropertyCategory: [PropertyItem]] {
         [
             .home: [
-                PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 1, 27), accentColor: .pink),
-                PropertyItem(title: "Юго-восточная, 55", paymentDate: Date.makeDate(2026, 2, 25), accentColor: .gray),
-                PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 1, 30), accentColor: .gray)
+                PropertyItem(title: "Центральная, 42", paymentDate: Date.makeDate(2026, 2, 6), lockStatus: .locked, accentColor: .pink),
+                PropertyItem(title: "Юго-восточная, 55", paymentDate: Date.makeDate(2026, 2, 25), lockStatus: .unlocked, accentColor: .gray),
+                PropertyItem(title: "Северо-западная, 78", paymentDate: Date.makeDate(2026, 2, 10), lockStatus: .unlocked, accentColor: .gray)
             ],
             .business: [
                 PropertyItem(title: "Central Los Santos Автосалон", paymentDate: Date.makeDate(2026, 2, 12), accentColor: .gray),
