@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BankUpcomingPaymentsView: View {    
     
-    @State private var popoverContext: (PropertyCategory, PropertyItem)?
+    @State private var popoverContext: PopoverIdentifiable?
 
     internal var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -17,8 +17,10 @@ struct BankUpcomingPaymentsView: View {
             cardsScrollView
         }
         .padding(.vertical, 16)
-        .background(Color(uiColor: .systemGroupedBackground))
-        
+        .background {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .fill(Color(.systemGray5))
+        }
     }
     
     private var titleView: some View {
@@ -34,7 +36,11 @@ struct BankUpcomingPaymentsView: View {
                 ForEach(Array(sortedItems.enumerated()), id: \.element.1.id) { _, element in
                     let category = element.0
                     let item = element.1
-                    BankUpcomingPaymentCard(category: category, item: item, popoverContext: $popoverContext)
+                    BankUpcomingPaymentCard(
+                        category: category,
+                        item: item,
+                        popoverContext: $popoverContext
+                    )
                 }
             }
             .padding(.horizontal, 16)
@@ -64,7 +70,6 @@ struct BankUpcomingPaymentsView: View {
     }
 }
 
-// MARK: - Warning Popover
 struct WarningPopover: View {
     let category: PropertyCategory
     let item: PropertyItem
@@ -74,17 +79,21 @@ struct WarningPopover: View {
         return Date.daysUntil(date)
     }
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(alignment: .top, spacing: 8) {
-                Image(systemName: "exclamationmark.circle")
-                    .foregroundStyle(.red)
-                Text("Внимание! Срок оплаты \(category.noun) истекает через \(daysLeft) дня.")
-                    .font(.headline)
+    internal var body: some View {
+        HStack(alignment: .top, spacing: 8) {
+            Image.Alert.warning
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+            
+            VStack(alignment: .leading, spacing: 0) {
+                Text(Texts.Bank.Transaction.warning)
+                    .font(.system(size: 14, weight: .bold))
+                
+                Text("\(Texts.Bank.Transaction.remaining) \(Date.daysRemaining(until: item.paymentDate ?? .now))")
+                    .font(.system(size: 14, weight: .regular))
             }
-            Text("Проверьте свой текущий баланс.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+            .foregroundStyle(Color.LabelColors.labelPrimary)
         }
         .padding(16)
     }

@@ -28,7 +28,7 @@ struct BankTransactionsView: View {
             }
             .padding(.vertical, 8)
             .background(
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Color(.systemGray5))
             )
         }

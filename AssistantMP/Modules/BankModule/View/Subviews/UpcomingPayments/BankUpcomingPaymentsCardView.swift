@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BankUpcomingPaymentCard: View {
     
-    @Binding var popoverContext: (PropertyCategory, PropertyItem)?
+    @Binding var popoverContext: PopoverIdentifiable?
     @State private var didAnimate: Bool = false
     
     private let category: PropertyCategory
@@ -19,7 +19,11 @@ struct BankUpcomingPaymentCard: View {
     private let daysLeftText: String
     private let daysLeftWarning: PropertyWarningStyle
     
-    init(category: PropertyCategory, item: PropertyItem, popoverContext: Binding<(PropertyCategory, PropertyItem)?> = .constant(nil)) {
+    init(
+        category: PropertyCategory,
+        item: PropertyItem,
+        popoverContext: Binding<PopoverIdentifiable?> = .constant(nil),
+    ) {
         self.category = category
         self.item = item
         self._popoverContext = popoverContext
@@ -35,6 +39,10 @@ struct BankUpcomingPaymentCard: View {
         case .business: return item.title
         case .transport: return item.title
         }
+    }
+
+    private var isPopoverPresented: Bool {
+        popoverContext?.category == category && popoverContext?.item.id == item.id
     }
     
     internal var body: some View {
@@ -75,20 +83,29 @@ struct BankUpcomingPaymentCard: View {
     private var timeLeftAmountView: some View {
         VStack(alignment: .leading, spacing: 5) {
             Button {
-                popoverContext = (category, item)
+                if popoverContext == nil || isPopoverPresented {
+                    popoverContext = PopoverIdentifiable(category: category, item: item)
+                }
             } label: {
                 daysLeftView
             }
             .buttonStyle(.plain)
-            .popover(item: Binding<StablePopoverItem?>(
-                get: {
-                    popoverContext.map { StablePopoverItem(category: $0.0, item: $0.1) }
-                },
-                set: { newValue in
-                    if let value = newValue { popoverContext = (value.category, value.item) } else { popoverContext = nil }
-                }
-            )) { value in
-                WarningPopover(category: value.category, item: value.item)
+            .disabled(popoverContext != nil && !isPopoverPresented)
+            .popover(
+                isPresented: Binding(
+                    get: {
+                        isPopoverPresented
+                    },
+                    set: { isPresented in
+                        if !isPresented {
+                            popoverContext = nil
+                        }
+                    }
+                ),
+                attachmentAnchor: .rect(.bounds),
+                arrowEdge: .bottom
+            ) {
+                WarningPopover(category: category, item: item)
                     .presentationCompactAdaptation(.popover)
             }
             
@@ -136,14 +153,8 @@ struct BankUpcomingPaymentCard: View {
             height: 7,
             style: daysLeftWarning)
     }
-    
-    struct StablePopoverItem: Identifiable, Equatable {
-        let category: PropertyCategory
-        let item: PropertyItem
-        var id: String { "\(category)-\(item.id)" }
-    }
 }
 
 #Preview {
-    BankUpcomingPaymentCard(category: .home, item: .sample, popoverContext: .constant(nil))
+    BankUpcomingPaymentCard(category: .home, item: .sample)
 }

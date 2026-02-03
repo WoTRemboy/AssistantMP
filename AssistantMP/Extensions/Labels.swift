@@ -87,6 +87,7 @@ final class Texts {
     
     enum Property {
         static let title = "Информация о доме"
+        static let shortTitle = "Дом"
         static let address = "Адрес"
         static let owner = "Владелец"
         static let status = "Статус дома"
@@ -121,6 +122,9 @@ final class Texts {
             static let income = "Пополнение"
             static let transfer = "Перевод"
             static let housePayment = "Оплата дома"
+            
+            static let warning = "Внимание!"
+            static let remaining = "Для оплаты осталось"
         }
     }
 }
