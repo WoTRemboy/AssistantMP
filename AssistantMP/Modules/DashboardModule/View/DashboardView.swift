@@ -60,12 +60,12 @@ struct DashboardView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .contentShape(Rectangle())
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color.black)
+            )
         }
         .buttonStyle(.plain)
-        .background(
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(Color.black)
-        )
         .padding(.horizontal)
         .padding(.top, 8)
     }

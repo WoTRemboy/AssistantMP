@@ -87,6 +87,7 @@ final class Texts {
     
     enum Property {
         static let title = "Информация о доме"
+        static let shortTitle = "Дом"
         static let address = "Адрес"
         static let owner = "Владелец"
         static let status = "Статус дома"
@@ -98,6 +99,12 @@ final class Texts {
         static let deadline = "Срок оплаты"
         static let date = "Оплата истекает"
         static let remaining = "Осталось"
+        
+        enum Noun {
+            static let house = "дома"
+            static let business = "бизнеса"
+            static let transport = "транспорта"
+        }
     }
     
     enum Bank {
@@ -108,11 +115,16 @@ final class Texts {
         static let topUp = "Пополнить"
         static let transfer = "Перевести"
         
+        static let upcomingPayments = "Ближайшие платежи"
+        
         enum Transaction {
             static let title = "Последние транзакции"
             static let income = "Пополнение"
             static let transfer = "Перевод"
             static let housePayment = "Оплата дома"
+            
+            static let warning = "Внимание!"
+            static let remaining = "Для оплаты осталось"
         }
     }
 }

@@ -17,6 +17,7 @@ struct BankView: View {
             VStack(spacing: 16) {
                 title
                 managementView
+                upcomingPaymentsView
                 operationsView
             }
             .padding(.horizontal)
@@ -51,6 +52,9 @@ struct BankView: View {
     
     private var managementView: some View {
         BankManagementView()
+    }
+    private var upcomingPaymentsView: some View {
+        BankUpcomingPaymentsView()
     }
     
     private var operationsView: some View {
