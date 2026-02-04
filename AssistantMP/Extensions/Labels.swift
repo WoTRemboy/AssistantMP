@@ -137,4 +137,18 @@ final class Texts {
             static let remaining = "Для оплаты осталось"
         }
     }
+    
+    enum Group {
+        static let title = "Мои группы"
+        static let addPlaceholder = "Статик ID игрока для добавления"
+        static let membersCount = "Количество участников"
+        static let messageAll = "Сообщение всем"
+
+        enum Tab {
+            static let friends = "Друзья"
+            static let work = "Работа"
+            static let family = "Семья"
+            static let clan = "Банда"
+        }
+    }
 }

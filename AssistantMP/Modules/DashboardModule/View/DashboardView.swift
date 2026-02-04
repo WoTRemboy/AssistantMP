@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     
+    @EnvironmentObject private var appRouter: AppRouter
     @StateObject private var viewModel = DashboardViewModel()
     
     internal var body: some View {
@@ -35,7 +36,9 @@ struct DashboardView: View {
     private var groupTiles: some View {
         HStack {
             ForEach(DashboardGroup.allCases, id: \.self) { type in
-                DashboardGroupTile(type: type, notification: true)
+                DashboardGroupTile(type: type, notification: true) {
+                    type.performAction(appRouter: appRouter)
+                }
             }
         }
     }

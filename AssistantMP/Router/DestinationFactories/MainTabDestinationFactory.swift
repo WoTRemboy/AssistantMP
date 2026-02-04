@@ -14,6 +14,10 @@ struct MainTabDestinationFactory {
         case .dashboard:
             DashboardView()
             
+        case .group:
+            GroupView()
+                .environmentObject(appRouter)
+            
         case .profile:
             ProfileView()
                 .environmentObject(appRouter)
