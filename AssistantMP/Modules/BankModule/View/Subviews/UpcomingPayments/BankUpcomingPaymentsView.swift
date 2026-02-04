@@ -10,6 +10,7 @@ import SwiftUI
 struct BankUpcomingPaymentsView: View {    
     
     @State private var popoverContext: PopoverIdentifiable?
+    @State private var didShowAutoPopover: Bool = false
 
     internal var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -21,25 +22,30 @@ struct BankUpcomingPaymentsView: View {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color(.systemGray5))
         }
+        .onDisappear {
+            didShowAutoPopover = false
+        }
     }
     
     private var titleView: some View {
         Text(Texts.Bank.upcomingPayments)
             .font(.system(size: 20, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .padding(.horizontal, 16)
     }
     
     private var cardsScrollView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
-                ForEach(Array(sortedItems.enumerated()), id: \.element.1.id) { _, element in
+                ForEach(Array(sortedItems.enumerated()), id: \.element.1.id) { index, element in
                     let category = element.0
                     let item = element.1
                     BankUpcomingPaymentCard(
                         category: category,
                         item: item,
-                        popoverContext: $popoverContext
+                        isFirst: index == 0,
+                        popoverContext: $popoverContext,
+                        didShowAutoPopover: $didShowAutoPopover
                     )
                 }
             }
@@ -93,7 +99,7 @@ struct WarningPopover: View {
                 Text("\(Texts.Bank.Transaction.remaining) \(Date.daysRemaining(until: item.paymentDate ?? .now))")
                     .font(.system(size: 14, weight: .regular))
             }
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
         }
         .padding(16)
     }

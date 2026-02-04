@@ -8,6 +8,11 @@
 import SwiftUI
 
 extension Image {
+    
+    enum General {
+        static let magnifyingGlass = Image(systemName: "magnifyingglass")
+    }
+    
     enum Opening {
         static let logo = Image("SplashScreenLogo")
     }
@@ -27,6 +32,10 @@ extension Image {
         static let forward = Image("ChevronForward")
         static let backward = Image("ChevronBackward")
         static let down = Image("ChevronDown")
+    }
+    
+    enum Toast {
+        static let checkmark = Image("ToastSuccess")
     }
     
     enum Selector {

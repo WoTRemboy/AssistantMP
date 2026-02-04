@@ -15,11 +15,11 @@ struct PropertyOwnerView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(User.sample.name)
                     .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(Color.LabelColors.labelPrimary)
+                    .foregroundStyle(Color.Label.primary)
                 
                 Text(Texts.Property.owner)
                     .font(.system(size: 16, weight: .regular))
-                    .foregroundStyle(Color.LabelColors.labelSecondary)
+                    .foregroundStyle(Color.Label.secondary)
             }
             Spacer()
         }

@@ -117,6 +117,16 @@ final class Texts {
         
         static let upcomingPayments = "Ближайшие платежи"
         
+        enum Transfer {
+            static let title = "Перевод игроку"
+            static let idPlaceholder = "Введите статик ID"
+            static let amountPlaceholder = "Введите сумму"
+            static let cancel = "Отмена"
+            static let send = "Отправить"
+            static let userName = "Sasha_Williams"
+            static let success = "Успешный перевод"
+        }
+        
         enum Transaction {
             static let title = "Последние транзакции"
             static let income = "Пополнение"
@@ -125,6 +135,20 @@ final class Texts {
             
             static let warning = "Внимание!"
             static let remaining = "Для оплаты осталось"
+        }
+    }
+    
+    enum Group {
+        static let title = "Мои группы"
+        static let addPlaceholder = "Статик ID игрока для добавления"
+        static let membersCount = "Количество участников"
+        static let messageAll = "Сообщение всем"
+
+        enum Tab {
+            static let friends = "Друзья"
+            static let work = "Работа"
+            static let family = "Семья"
+            static let clan = "Банда"
         }
     }
 }

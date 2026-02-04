@@ -40,9 +40,9 @@ struct BankOperation {
             case .income:
                 Color(.systemGreen)
             case .transfer:
-                Color.LabelColors.labelPrimary
+                Color.Label.primary
             case .housePayment:
-                Color.LabelColors.labelPrimary
+                Color.Label.primary
             }
         }
         

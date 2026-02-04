@@ -34,7 +34,7 @@ struct AccountBankView: View {
         VStack(alignment: .center, spacing: 6) {
             Text(title)
                 .font(.system(size: 18, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
             
             CountingText(value: didAnimate ? Double(amount) : 0)
                 .font(.system(size: 25, weight: .bold))

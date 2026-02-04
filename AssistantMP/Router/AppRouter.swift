@@ -19,6 +19,7 @@ final class AppRouter: ObservableObject {
     
     enum Route: Hashable {
         case dashboard
+        case group
         case profile
         case property
         case bank

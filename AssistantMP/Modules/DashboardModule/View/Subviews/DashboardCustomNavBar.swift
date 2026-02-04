@@ -39,7 +39,7 @@ struct DashboardCustomNavBar: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
-        .background(Color.BackColors.backDefault)
+        .background(Color.Back.backDefault)
     }
     
     private var profileIcon: some View {

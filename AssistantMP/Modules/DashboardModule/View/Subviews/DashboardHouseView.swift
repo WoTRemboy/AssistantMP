@@ -32,6 +32,13 @@ struct DashboardHouseView: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(Color(.systemGray5))
         )
+        .alert(isPresented: $viewModel.paymentAlertShow) {
+            paymentAlert
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Rectangle()
+                .fill(.primary.opacity(0.35))
+        }
         .sensoryFeedback(.selection, trigger: viewModel.selectedProperty.lockStatus)
     }
     
@@ -96,11 +103,11 @@ struct DashboardHouseView: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(viewModel.selectedProperty.lockStatus?.title ?? PropertyLock.unlocked.title)
                 .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
             
             Text(viewModel.selectedProperty.title)
                 .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
                 .lineLimit(1)
                 .truncationMode(.middle)
         }
@@ -114,7 +121,7 @@ struct DashboardHouseView: View {
         } label: {
             Text(viewModel.selectedProperty.lockStatus?.actionTitle ?? "")
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelReversed)
+                .foregroundStyle(Color.Label.reversed)
                 .lineLimit(1)
             
                 .padding(.horizontal, 16)
@@ -127,6 +134,17 @@ struct DashboardHouseView: View {
         }
         .layoutPriority(2)
         .buttonStyle(.plain)
+    }
+    
+    private var paymentAlert: some View {
+        CustomPaymentWarning(
+            title: "\(Texts.Property.address): \(viewModel.selectedProperty.title).",
+            content: Texts.Property.warningShort,
+            value: "\(Date.daysRemaining(until: viewModel.selectedProperty.paymentDate ?? .now))",
+            titleError: Texts.Property.warningError,
+            image: Image.Alert.warning) {
+                viewModel.paymentAlertShowToggle()
+            }
     }
 }
 

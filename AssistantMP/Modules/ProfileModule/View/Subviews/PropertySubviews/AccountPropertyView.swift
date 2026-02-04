@@ -53,13 +53,13 @@ private struct SectionBox<Content: View>: View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .padding(.horizontal, 18)
             
             content()
                 .background(
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Color.BackColors.backDefault)
+                        .fill(Color.Back.backDefault)
                 )
                 .padding(.horizontal, 10)
         }

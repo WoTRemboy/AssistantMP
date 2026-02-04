@@ -10,10 +10,13 @@ import SwiftUI
 struct BankUpcomingPaymentCard: View {
     
     @Binding var popoverContext: PopoverIdentifiable?
+    @Binding var didShowAutoPopover: Bool
     @State private var didAnimate: Bool = false
+    @State private var autoPopoverTask: Task<Void, Never>?
     
     private let category: PropertyCategory
     private let item: PropertyItem
+    private let isFirst: Bool
     
     private let daysLeft: Int
     private let daysLeftText: String
@@ -22,11 +25,15 @@ struct BankUpcomingPaymentCard: View {
     init(
         category: PropertyCategory,
         item: PropertyItem,
+        isFirst: Bool = false,
         popoverContext: Binding<PopoverIdentifiable?> = .constant(nil),
+        didShowAutoPopover: Binding<Bool> = .constant(false)
     ) {
         self.category = category
         self.item = item
+        self.isFirst = isFirst
         self._popoverContext = popoverContext
+        self._didShowAutoPopover = didShowAutoPopover
         
         self.daysLeft = Date.daysUntil(item.paymentDate ?? .now)
         self.daysLeftText = Date.daysRemaining(until: item.paymentDate ?? .now)
@@ -53,16 +60,30 @@ struct BankUpcomingPaymentCard: View {
         .padding(14)
         .background {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.BackColors.backDefault)
+                .fill(Color.Back.backDefault)
         }
         .frame(width: 160, height: 180)
+        .onAppear {
+            guard isFirst, !didShowAutoPopover, popoverContext == nil else { return }
+            didShowAutoPopover = true
+            autoPopoverTask?.cancel()
+            autoPopoverTask = Task {
+                try? await Task.sleep(for: .milliseconds(250))
+                guard !Task.isCancelled else { return }
+                popoverContext = PopoverIdentifiable(category: category, item: item)
+            }
+        }
+        .onDisappear {
+            autoPopoverTask?.cancel()
+            autoPopoverTask = nil
+        }
     }
     
     private var titleView: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(titleText)
                 .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(3)
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
@@ -71,7 +92,7 @@ struct BankUpcomingPaymentCard: View {
             if let subtitle = item.address {
                 Text(subtitle)
                     .font(.system(size: 14))
-                    .foregroundStyle(Color.LabelColors.labelSecondary)
+                    .foregroundStyle(Color.Label.secondary)
                     .lineLimit(3)
                     .truncationMode(.middle)
                     .layoutPriority(0)
@@ -114,7 +135,7 @@ struct BankUpcomingPaymentCard: View {
             if let amount = item.paymentAmount {
                 CountingText(value: didAnimate ? Double(amount) : 0)
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(Color.LabelColors.labelGreyDark)
+                    .foregroundStyle(Color.Label.greyDark)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                 
