@@ -124,6 +124,7 @@ final class Texts {
             static let cancel = "Отмена"
             static let send = "Отправить"
             static let userName = "Sasha_Williams"
+            static let success = "Успешный перевод"
         }
         
         enum Transaction {

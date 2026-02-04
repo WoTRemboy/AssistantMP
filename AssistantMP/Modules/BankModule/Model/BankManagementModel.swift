@@ -33,7 +33,7 @@ enum BankManagement {
     internal var color: Color {
         switch self {
         case .topUp:
-            Color.LabelColors.labelPrimary
+            Color.Label.primary
         case .transfer:
             Color(.systemGray)
         }

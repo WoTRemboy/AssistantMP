@@ -79,7 +79,7 @@ struct DashboardBankView: View {
     private var amountView: some View {
         CountingText(value: didAnimate ? Double(amount) : 0)
             .font(.system(size: 18, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .lineLimit(1)
             .minimumScaleFactor(0.3)
         
@@ -105,7 +105,7 @@ struct DashboardBankView: View {
         } label: {
             Text(Texts.Dashboard.Bank.action)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelReversed)
+                .foregroundStyle(Color.Label.reversed)
                 .lineLimit(1)
             
                 .padding(.horizontal, 16)

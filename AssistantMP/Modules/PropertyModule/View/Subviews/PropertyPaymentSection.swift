@@ -39,7 +39,7 @@ struct PropertyPaymentSection: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(Texts.Property.warning) \(daysLeftText)")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(Color.LabelColors.labelPrimary)
+                    .foregroundStyle(Color.Label.primary)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -55,7 +55,7 @@ struct PropertyPaymentSection: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("\(Texts.Property.deadline):")
                         .font(.system(size: 20, weight: .bold))
-                        .foregroundStyle(Color.LabelColors.labelPrimary)
+                        .foregroundStyle(Color.Label.primary)
                     
                     HStack(spacing: 12) {
                         paymentPill
@@ -80,10 +80,10 @@ struct PropertyPaymentSection: View {
         VStack(alignment: .leading, spacing: 3) {
             Text("\(Texts.Property.date):")
                 .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
             Text("\(DateFormatter.shortPayment.string(from: paymentDate))")
                 .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
         }
     }
     
@@ -95,7 +95,7 @@ struct PropertyPaymentSection: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
             .background(
-                Color.BackColors.backDefault
+                Color.Back.backDefault
             )
             .overlay(alignment: .bottom) {
                 timeLeftBar

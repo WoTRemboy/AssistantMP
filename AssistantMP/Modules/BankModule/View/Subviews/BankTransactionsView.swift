@@ -61,7 +61,7 @@ struct TransactionRow: View {
             
             Text(DateFormatter.dayMonthYearTime.string(from: transaction.date))
                 .font(.system(size: 16))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
         }
     }
     

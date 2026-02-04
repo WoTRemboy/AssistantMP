@@ -40,7 +40,7 @@ struct BankManagementView: View {
                 
             Text(Texts.Bank.balance)
                 .font(.system(size: 18))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -55,7 +55,7 @@ struct BankManagementView: View {
     private var countingText: some View {
         CountingText(value: didAnimate ? Double(amount) : 0)
             .font(.system(size: 25, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .lineLimit(1)
             .minimumScaleFactor(0.3)
         
@@ -79,7 +79,7 @@ struct BankManagementView: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
             }
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundStyle(Color.Label.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .contentShape(Rectangle())

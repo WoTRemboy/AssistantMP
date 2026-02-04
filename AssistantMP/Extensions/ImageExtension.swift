@@ -34,6 +34,10 @@ extension Image {
         static let down = Image("ChevronDown")
     }
     
+    enum Toast {
+        static let checkmark = Image("ToastSuccess")
+    }
+    
     enum Selector {
         static let selected = Image(systemName: "largecircle.fill.circle")
         static let unselected = Image(systemName: "circle")

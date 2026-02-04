@@ -37,11 +37,11 @@ struct PropertyLockStatusView: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(lockStatus.title)
                 .font(.system(size: 20, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
             
             Text(Texts.Property.status)
                 .font(.system(size: 16, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -54,7 +54,7 @@ struct PropertyLockStatusView: View {
         } label: {
             Text(lockStatus.actionTitleFull)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelReversed)
+                .foregroundStyle(Color.Label.reversed)
             
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)

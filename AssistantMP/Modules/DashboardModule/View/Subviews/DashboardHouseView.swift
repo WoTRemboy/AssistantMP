@@ -103,11 +103,11 @@ struct DashboardHouseView: View {
         VStack(alignment: .leading, spacing: 2) {
             Text(viewModel.selectedProperty.lockStatus?.title ?? PropertyLock.unlocked.title)
                 .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
             
             Text(viewModel.selectedProperty.title)
                 .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
                 .lineLimit(1)
                 .truncationMode(.middle)
         }
@@ -121,7 +121,7 @@ struct DashboardHouseView: View {
         } label: {
             Text(viewModel.selectedProperty.lockStatus?.actionTitle ?? "")
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelReversed)
+                .foregroundStyle(Color.Label.reversed)
                 .lineLimit(1)
             
                 .padding(.horizontal, 16)

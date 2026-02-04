@@ -109,13 +109,13 @@ struct CustomPaymentWarning: View {
             
             Text(title)
                 .font(.system(size: 18))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .multilineTextAlignment(.center)
                 .padding(.top, 8)
             
             attributedTextLabel
                 .font(.system(size: 18))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
@@ -123,7 +123,7 @@ struct CustomPaymentWarning: View {
         .padding(.horizontal, 16)
         .background {
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color.BackColors.primary)
+                .fill(Color.Back.primary)
         }
         .overlay(alignment: .topTrailing) {
             dismissButton

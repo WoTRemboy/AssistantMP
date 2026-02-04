@@ -17,12 +17,14 @@ struct TransitionView: View {
                 SplashScreenView()
                     .transition(CustomSplashTransition(isRoot: false))
             } else {
-                ContentView()
-                    .transition(CustomSplashTransition(isRoot: true))
+                RootView {
+                    ContentView()
+                        .transition(CustomSplashTransition(isRoot: true))
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.BackColors.backDefault)
+        .background(Color.Back.backDefault)
         .task {
             guard showsSplashScreen else { return }
             try? await Task.sleep(for: .seconds(0.5))

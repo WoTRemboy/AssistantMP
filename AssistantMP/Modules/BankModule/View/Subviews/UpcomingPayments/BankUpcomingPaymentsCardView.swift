@@ -60,7 +60,7 @@ struct BankUpcomingPaymentCard: View {
         .padding(14)
         .background {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.BackColors.backDefault)
+                .fill(Color.Back.backDefault)
         }
         .frame(width: 160, height: 180)
         .onAppear {
@@ -83,7 +83,7 @@ struct BankUpcomingPaymentCard: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(titleText)
                 .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(3)
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
@@ -92,7 +92,7 @@ struct BankUpcomingPaymentCard: View {
             if let subtitle = item.address {
                 Text(subtitle)
                     .font(.system(size: 14))
-                    .foregroundStyle(Color.LabelColors.labelSecondary)
+                    .foregroundStyle(Color.Label.secondary)
                     .lineLimit(3)
                     .truncationMode(.middle)
                     .layoutPriority(0)
@@ -135,7 +135,7 @@ struct BankUpcomingPaymentCard: View {
             if let amount = item.paymentAmount {
                 CountingText(value: didAnimate ? Double(amount) : 0)
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(Color.LabelColors.labelGreyDark)
+                    .foregroundStyle(Color.Label.greyDark)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                 

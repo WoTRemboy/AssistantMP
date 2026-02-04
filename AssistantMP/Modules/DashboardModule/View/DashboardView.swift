@@ -25,7 +25,7 @@ struct DashboardView: View {
         }
         .safeAreaInset(edge: .bottom) {
             bottomActionBar
-                .background(Color.BackColors.backDefault)
+                .background(Color.Back.backDefault)
         }
         .safeAreaInset(edge: .top) {
             DashboardCustomNavBar(username: nil)
@@ -49,7 +49,7 @@ struct DashboardView: View {
                 Text(Texts.Dashboard.wallet)
                     .font(.system(size: 18, weight: .bold))
             }
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundStyle(Color.Label.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .contentShape(Rectangle())

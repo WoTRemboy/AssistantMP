@@ -41,7 +41,7 @@ struct DashboardGroupTile: View {
     private var titleLabel: some View {
         Text(type.title)
             .font(.system(size: 20, weight: .medium))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .lineLimit(2)
             .multilineTextAlignment(.center)
     }

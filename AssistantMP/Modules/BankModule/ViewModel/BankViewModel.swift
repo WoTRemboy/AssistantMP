@@ -77,6 +77,11 @@ final class BankViewModel: ObservableObject {
             transferAlertState = .loading
             try? await Task.sleep(for: .seconds(0.8))
             closeTransferAlert()
+            Toast.shared.present(
+                title: Texts.Bank.Transfer.success,
+                symbol: Image.Toast.checkmark
+            )
+            triggerSuccessHaptic()
         }
     }
 
@@ -98,5 +103,10 @@ final class BankViewModel: ObservableObject {
             from: nil,
             for: nil
         )
+    }
+
+    private func triggerSuccessHaptic() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }

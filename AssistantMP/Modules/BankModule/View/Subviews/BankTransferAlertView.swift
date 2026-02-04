@@ -20,7 +20,7 @@ struct BankTransferAlertView: View {
         VStack(spacing: 0) {
             Text(Texts.Bank.Transfer.title)
                 .font(.system(size: 19, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .padding(.top, 16)
                 .padding(.bottom, 12)
 
@@ -38,7 +38,7 @@ struct BankTransferAlertView: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Color.BackColors.primary)
+                .fill(Color.Back.primary)
         )
         .padding(.horizontal, 24)
         .frame(height: 240)
@@ -50,10 +50,10 @@ struct BankTransferAlertView: View {
                 "",
                 text: idBinding,
                 prompt: Text(Texts.Bank.Transfer.idPlaceholder)
-                    .foregroundStyle(Color.LabelColors.labelPlaceholder)
+                    .foregroundStyle(Color.Label.placeholder)
             )
             .font(.system(size: 18, weight: .medium))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .keyboardType(.numberPad)
             .lineLimit(1)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -85,10 +85,10 @@ struct BankTransferAlertView: View {
                 "",
                 text: amountBinding,
                 prompt: Text(Texts.Bank.Transfer.amountPlaceholder)
-                    .foregroundStyle(Color.LabelColors.labelPlaceholder)
+                    .foregroundStyle(Color.Label.placeholder)
             )
             .font(.system(size: 18, weight: .medium))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .keyboardType(.numberPad)
             .lineLimit(1)
             .disabled(viewModel.transferAlertState == .loading)
@@ -108,7 +108,7 @@ struct BankTransferAlertView: View {
             case .loading:
                 ProgressView()
                     .progressViewStyle(.circular)
-                    .tint(Color.LabelColors.labelPrimary)
+                    .tint(Color.Label.primary)
                     .frame(width: 28, height: 28)
                     .transition(statusTransition)
             case .filled:
@@ -147,7 +147,7 @@ struct BankTransferAlertView: View {
 
             Text(Texts.Bank.Transfer.userName)
                 .font(.system(size: 17, weight: .medium))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
                 .truncationMode(.middle)
@@ -164,7 +164,7 @@ struct BankTransferAlertView: View {
             
             Image.General.magnifyingGlass
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
         }
         
     }
@@ -190,7 +190,7 @@ struct BankTransferAlertView: View {
             } label: {
                 Text(Texts.Bank.Transfer.cancel)
                     .font(.system(size: 18, weight: .medium))
-                    .foregroundStyle(Color.LabelColors.labelPrimary)
+                    .foregroundStyle(Color.Label.primary)
                     .frame(maxWidth: .infinity)
                     .frame(height: 52)
                     .contentShape(Rectangle())
@@ -216,11 +216,11 @@ struct BankTransferAlertView: View {
     }
 
     private var amountColor: Color {
-        viewModel.transferAmountText.isEmpty ? Color.LabelColors.labelPlaceholder : Color.LabelColors.labelPrimary
+        viewModel.transferAmountText.isEmpty ? Color.Label.placeholder : Color.Label.primary
     }
 
     private var sendColor: Color {
-        viewModel.canSend ? Color.LabelColors.labelPrimary : Color.LabelColors.labelDisable
+        viewModel.canSend ? Color.Label.primary : Color.Label.disable
     }
 }
 
@@ -228,5 +228,5 @@ struct BankTransferAlertView: View {
     let viewModel = BankViewModel()
     BankTransferAlertView(viewModel: viewModel)
         .padding(.vertical, 24)
-        .background(Color.BackColors.backDefault)
+        .background(Color.Back.backDefault)
 }

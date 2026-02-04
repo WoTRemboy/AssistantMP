@@ -57,7 +57,7 @@ struct AccountInfoView: View {
                 Circle()
                     .trim(from: 0, to: displayedProgress)
                     .stroke(
-                        Color.LabelColors.labelSecondary,
+                        Color.Label.secondary,
                         style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round)
                     )
                     .rotationEffect(.degrees(30))
@@ -77,7 +77,7 @@ struct AccountInfoView: View {
     private var levelOverlay: some View {
         Text("\(user.level)")
             .font(.system(size: 12, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundStyle(Color.Label.white)
             .lineLimit(1)
             .minimumScaleFactor(0.2)
         
@@ -85,7 +85,7 @@ struct AccountInfoView: View {
             .padding(3)
             .background(
                 Circle()
-                    .fill(Color.LabelColors.labelSecondary)
+                    .fill(Color.Label.secondary)
             )
             .offset(x: 6, y: -7)
     }
@@ -94,7 +94,7 @@ struct AccountInfoView: View {
         HStack(alignment: .top, spacing: 10) {
             Text(user.name)
                 .font(.system(size: 25, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
             
@@ -110,7 +110,7 @@ struct AccountInfoView: View {
                 
         }
         .font(.system(size: 14, weight: .regular))
-        .foregroundStyle(Color.LabelColors.labelPrimary)
+        .foregroundStyle(Color.Label.primary)
         .lineLimit(1)
     }
 

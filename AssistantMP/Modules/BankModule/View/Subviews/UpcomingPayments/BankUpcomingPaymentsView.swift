@@ -30,7 +30,7 @@ struct BankUpcomingPaymentsView: View {
     private var titleView: some View {
         Text(Texts.Bank.upcomingPayments)
             .font(.system(size: 20, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .padding(.horizontal, 16)
     }
     
@@ -99,7 +99,7 @@ struct WarningPopover: View {
                 Text("\(Texts.Bank.Transaction.remaining) \(Date.daysRemaining(until: item.paymentDate ?? .now))")
                     .font(.system(size: 14, weight: .regular))
             }
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
         }
         .padding(16)
     }
