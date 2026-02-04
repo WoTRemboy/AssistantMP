@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BankManagementView: View {
     
+    @ObservedObject var viewModel: BankViewModel
     @State private var didAnimate: Bool = false
     private let amount = 12_500_000
     
@@ -17,10 +18,20 @@ struct BankManagementView: View {
             balanceCard
             VStack(spacing: 8) {
                 actionButton(for: .topUp) {}
-                actionButton(for: .transfer) {}
+                actionButton(for: .transfer) {
+                    viewModel.openTransferAlert()
+                }
             }
         }
         .frame(maxHeight: 112)
+        .alert(isPresented: $viewModel.isTransferAlertPresented, onDismiss: {
+            viewModel.closeTransferAlert()
+        }) {
+            transferAlertView
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Color.black.opacity(0.35)
+        }
     }
     
     private var balanceCard: some View {
@@ -79,9 +90,13 @@ struct BankManagementView: View {
         }
         .buttonStyle(.plain)
     }
+    
+    private var transferAlertView: some View {
+        BankTransferAlertView(viewModel: viewModel)
+    }
 }
 
 #Preview {
-    BankManagementView()
+    BankManagementView(viewModel: BankViewModel())
         .padding(.horizontal, 8)
 }

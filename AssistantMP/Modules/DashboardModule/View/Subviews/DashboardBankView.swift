@@ -10,6 +10,7 @@ import SwiftUI
 struct DashboardBankView: View {
     
     @EnvironmentObject private var appRouter: AppRouter
+    @StateObject private var bankViewModel = BankViewModel()
     @State private var didAnimate: Bool = false
     
     private let amount: Int = 12500000
@@ -26,6 +27,14 @@ struct DashboardBankView: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(Color(.systemGray5))
         )
+        .alert(isPresented: $bankViewModel.isTransferAlertPresented, onDismiss: {
+            bankViewModel.closeTransferAlert()
+        }) {
+            BankTransferAlertView(viewModel: bankViewModel)
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Color.black.opacity(0.35)
+        }
     }
     
     private var headerView: some View {
@@ -92,7 +101,7 @@ struct DashboardBankView: View {
     
     private var actionButton: some View {
         Button {
-            
+            bankViewModel.openTransferAlert()
         } label: {
             Text(Texts.Dashboard.Bank.action)
                 .font(.system(size: 18, weight: .bold))

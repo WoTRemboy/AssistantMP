@@ -51,6 +51,8 @@
 		635B00F52F21608C00B61D43 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B00F42F21608800B61D43 /* DashboardViewModel.swift */; };
 		635B00F72F21655F00B61D43 /* DashboardHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B00F62F21655F00B61D43 /* DashboardHouseView.swift */; };
 		635B00F92F2171B700B61D43 /* PropertyLockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635B00F82F2171AF00B61D43 /* PropertyLockModel.swift */; };
+		63679D512F33ACAA00B75450 /* BankTransferAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63679D502F33ACAA00B75450 /* BankTransferAlertView.swift */; };
+		63679D542F33B8B400B75450 /* BankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63679D532F33B8B000B75450 /* BankViewModel.swift */; };
 		63C501F62F31146E001A2690 /* PropertyOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F52F31146E001A2690 /* PropertyOwnerView.swift */; };
 		63C501F82F3114BC001A2690 /* PropertyLockStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F72F3114BC001A2690 /* PropertyLockStatusView.swift */; };
 		63C501FA2F3119E0001A2690 /* PropertyPaymentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F92F3119E0001A2690 /* PropertyPaymentSection.swift */; };
@@ -120,6 +122,8 @@
 		635B00F62F21655F00B61D43 /* DashboardHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHouseView.swift; sourceTree = "<group>"; };
 		635B00F82F2171AF00B61D43 /* PropertyLockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLockModel.swift; sourceTree = "<group>"; };
 		635B00FA2F21874300B61D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63679D502F33ACAA00B75450 /* BankTransferAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferAlertView.swift; sourceTree = "<group>"; };
+		63679D532F33B8B000B75450 /* BankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewModel.swift; sourceTree = "<group>"; };
 		63C501F52F31146E001A2690 /* PropertyOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyOwnerView.swift; sourceTree = "<group>"; };
 		63C501F72F3114BC001A2690 /* PropertyLockStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLockStatusView.swift; sourceTree = "<group>"; };
 		63C501F92F3119E0001A2690 /* PropertyPaymentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyPaymentSection.swift; sourceTree = "<group>"; };
@@ -351,11 +355,20 @@
 			path = DestinationFactories;
 			sourceTree = "<group>";
 		};
+		63679D522F33B8A600B75450 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63679D532F33B8B000B75450 /* BankViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		63C501FD2F314933001A2690 /* BankModule */ = {
 			isa = PBXGroup;
 			children = (
 				63C502062F3150C3001A2690 /* Model */,
 				63C502052F3150B9001A2690 /* View */,
+				63679D522F33B8A600B75450 /* ViewModel */,
 			);
 			path = BankModule;
 			sourceTree = "<group>";
@@ -366,6 +379,7 @@
 				63C502012F314B3F001A2690 /* BankCustomNavBar.swift */,
 				63C502032F314CFB001A2690 /* BankManagementView.swift */,
 				63C502092F3157C3001A2690 /* BankTransactionsView.swift */,
+				63679D502F33ACAA00B75450 /* BankTransferAlertView.swift */,
 				63207BE22F32683F0033A195 /* UpcomingPayments */,
 			);
 			path = Subviews;
@@ -553,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63679D542F33B8B400B75450 /* BankViewModel.swift in Sources */,
 				63DA8AC52F30095D002EEF62 /* PropertyAddressView.swift in Sources */,
 				634026FC2F23B8A100653F2D /* AccountBankView.swift in Sources */,
 				63C502082F3150CF001A2690 /* BankManagementModel.swift in Sources */,
@@ -563,6 +578,7 @@
 				634027042F23BFA500653F2D /* PropertyModel.swift in Sources */,
 				634E86B72F269EA900F56320 /* ProfileCustomNavBar.swift in Sources */,
 				63095F2C2F22592C00395EE7 /* DashboardBankView.swift in Sources */,
+				63679D512F33ACAA00B75450 /* BankTransferAlertView.swift in Sources */,
 				63DA8ABE2F2F7B77002EEF62 /* PropertyView.swift in Sources */,
 				63095F422F229FE000395EE7 /* DashboardCustomNavBar.swift in Sources */,
 				63DA8AB72F2E7900002EEF62 /* FullSwipeModifier.swift in Sources */,

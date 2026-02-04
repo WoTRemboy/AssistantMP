@@ -117,6 +117,15 @@ final class Texts {
         
         static let upcomingPayments = "Ближайшие платежи"
         
+        enum Transfer {
+            static let title = "Перевод игроку"
+            static let idPlaceholder = "Введите статик ID"
+            static let amountPlaceholder = "Введите сумму"
+            static let cancel = "Отмена"
+            static let send = "Отправить"
+            static let userName = "Sasha_Williams"
+        }
+        
         enum Transaction {
             static let title = "Последние транзакции"
             static let income = "Пополнение"

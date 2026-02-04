@@ -14,15 +14,24 @@ extension View {
     @ViewBuilder
     func alert<Content: View, Background: View>(
         isPresented: Binding<Bool>,
+        onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder background: @escaping () -> Background
     ) -> some View {
-        self.modifier(CustomAlertModifier(isPresented: isPresented, alertContent: content, background: background))
+        self.modifier(
+            CustomAlertModifier(
+                isPresented: isPresented,
+                onDismiss: onDismiss,
+                alertContent: content,
+                background: background
+            )
+        )
     }
 }
 
 fileprivate struct CustomAlertModifier<AlertContent: View, Background: View>: ViewModifier {
     @Binding var isPresented: Bool
+    var onDismiss: (() -> Void)?
     @ViewBuilder var alertContent: AlertContent
     @ViewBuilder var background: Background
     
@@ -68,6 +77,7 @@ fileprivate struct CustomAlertModifier<AlertContent: View, Background: View>: Vi
                         showFullScreenCover = true
                     }
                 } else {
+                    onDismiss?()
                     allowsInteraction = false
                     withAnimation(.easeInOut(duration: 0.2), completionCriteria: .removed) {
                         animatedValue = false

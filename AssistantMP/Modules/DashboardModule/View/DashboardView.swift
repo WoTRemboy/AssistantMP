@@ -30,13 +30,6 @@ struct DashboardView: View {
         .safeAreaInset(edge: .top) {
             DashboardCustomNavBar(username: nil)
         }
-        .alert(isPresented: $viewModel.paymentAlertShow) {
-            paymentAlert
-                .transition(.blurReplace.combined(with: .push(from: .bottom)))
-        } background: {
-            Rectangle()
-                .fill(.primary.opacity(0.35))
-        }
     }
     
     private var groupTiles: some View {
@@ -68,17 +61,6 @@ struct DashboardView: View {
         .buttonStyle(.plain)
         .padding(.horizontal)
         .padding(.top, 8)
-    }
-    
-    private var paymentAlert: some View {
-        CustomPaymentWarning(
-            title: "\(Texts.Property.address): \(viewModel.selectedProperty.title).",
-            content: Texts.Property.warningShort,
-            value: "\(Date.daysRemaining(until: viewModel.selectedProperty.paymentDate ?? .now))",
-            titleError: Texts.Property.warningError,
-            image: Image.Alert.warning) {
-                viewModel.paymentAlertShowToggle()
-            }
     }
 }
 

@@ -32,6 +32,13 @@ struct DashboardHouseView: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(Color(.systemGray5))
         )
+        .alert(isPresented: $viewModel.paymentAlertShow) {
+            paymentAlert
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Rectangle()
+                .fill(.primary.opacity(0.35))
+        }
         .sensoryFeedback(.selection, trigger: viewModel.selectedProperty.lockStatus)
     }
     
@@ -127,6 +134,17 @@ struct DashboardHouseView: View {
         }
         .layoutPriority(2)
         .buttonStyle(.plain)
+    }
+    
+    private var paymentAlert: some View {
+        CustomPaymentWarning(
+            title: "\(Texts.Property.address): \(viewModel.selectedProperty.title).",
+            content: Texts.Property.warningShort,
+            value: "\(Date.daysRemaining(until: viewModel.selectedProperty.paymentDate ?? .now))",
+            titleError: Texts.Property.warningError,
+            image: Image.Alert.warning) {
+                viewModel.paymentAlertShowToggle()
+            }
     }
 }
 
