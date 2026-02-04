@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SceletonView<S: Shape>: View {
     
-    @State private var isAnimating: Bool = false
-    
     private var shape: S
     private var color: Color
     
@@ -20,46 +18,44 @@ struct SceletonView<S: Shape>: View {
     }
     
     internal var body: some View {
-        shape
-            .fill(color)
-            .overlay {
-                GeometryReader {
-                    let size = $0.size
-                    let skeletonWidth = size.width / 2
-                    let blurRadius = max(skeletonWidth / 2, 30)
-                    let blurDiameter = blurRadius * 2
-                    
-                    let minX = -(skeletonWidth + blurDiameter)
-                    let maxX = size.width + skeletonWidth + blurDiameter
-                    
-                    Rectangle()
-                        .fill(.gray)
-                        .frame(width: skeletonWidth, height: size.height * 2)
-                        .frame(height: size.height)
-                        .blur(radius: blurRadius)
-                        .rotationEffect(.init(degrees: rotation))
-                        .blendMode(.softLight)
-                        .offset(x: isAnimating ? maxX : minX)
-                        .animation(animation, value: isAnimating)
+        TimelineView(.animation) { timeline in
+            shape
+                .fill(color)
+                .overlay {
+                    GeometryReader {
+                        let size = $0.size
+                        let skeletonWidth = size.width / 2
+                        let blurRadius = max(skeletonWidth / 2, 30)
+                        let blurDiameter = blurRadius * 2
+                        
+                        let minX = -(skeletonWidth + blurDiameter)
+                        let maxX = size.width + skeletonWidth + blurDiameter
+                        let offset = shimmerOffset(minX: minX, maxX: maxX, date: timeline.date)
+                        
+                        Rectangle()
+                            .fill(.gray)
+                            .frame(width: skeletonWidth, height: size.height * 2)
+                            .frame(height: size.height)
+                            .blur(radius: blurRadius)
+                            .rotationEffect(.init(degrees: rotation))
+                            .blendMode(.softLight)
+                            .offset(x: offset)
+                    }
                 }
-            }
-            .clipShape(shape)
-            .compositingGroup()
-            .onAppear {
-                guard !isAnimating else { return }
-                isAnimating = true
-            }
-            .onDisappear {
-                isAnimating = false
-            }
+                .clipShape(shape)
+                .compositingGroup()
+        }
     }
     
     private var rotation: Double {
         return 5
     }
     
-    private var animation: Animation {
-        .easeInOut(duration: 1.5).repeatForever(autoreverses: false)
+    private func shimmerOffset(minX: CGFloat, maxX: CGFloat, date: Date) -> CGFloat {
+        let duration: TimeInterval = 1.5
+        let time = date.timeIntervalSinceReferenceDate
+        let progress = (time.truncatingRemainder(dividingBy: duration)) / duration
+        return minX + (maxX - minX) * progress
     }
 }
 

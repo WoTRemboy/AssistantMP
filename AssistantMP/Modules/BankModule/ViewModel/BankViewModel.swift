@@ -34,6 +34,7 @@ final class BankViewModel: ObservableObject {
     }
 
     func closeTransferAlert() {
+        hideKeyboard()
         isTransferAlertPresented = false
         Task {
             try? await Task.sleep(for: .seconds(0.2))
@@ -88,5 +89,14 @@ final class BankViewModel: ObservableObject {
         guard !digits.isEmpty else { return "" }
         let intValue = Int(digits) ?? 0
         return NumberFormatter.bankGrouping.string(from: NSNumber(value: intValue)) ?? digits
+    }
+
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
     }
 }

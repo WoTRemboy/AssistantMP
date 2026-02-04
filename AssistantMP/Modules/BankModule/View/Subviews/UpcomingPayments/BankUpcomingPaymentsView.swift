@@ -10,6 +10,7 @@ import SwiftUI
 struct BankUpcomingPaymentsView: View {    
     
     @State private var popoverContext: PopoverIdentifiable?
+    @State private var didShowAutoPopover: Bool = false
 
     internal var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -20,6 +21,9 @@ struct BankUpcomingPaymentsView: View {
         .background {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
                 .fill(Color(.systemGray5))
+        }
+        .onDisappear {
+            didShowAutoPopover = false
         }
     }
     
@@ -33,13 +37,15 @@ struct BankUpcomingPaymentsView: View {
     private var cardsScrollView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
-                ForEach(Array(sortedItems.enumerated()), id: \.element.1.id) { _, element in
+                ForEach(Array(sortedItems.enumerated()), id: \.element.1.id) { index, element in
                     let category = element.0
                     let item = element.1
                     BankUpcomingPaymentCard(
                         category: category,
                         item: item,
-                        popoverContext: $popoverContext
+                        isFirst: index == 0,
+                        popoverContext: $popoverContext,
+                        didShowAutoPopover: $didShowAutoPopover
                     )
                 }
             }

@@ -10,10 +10,13 @@ import SwiftUI
 struct BankUpcomingPaymentCard: View {
     
     @Binding var popoverContext: PopoverIdentifiable?
+    @Binding var didShowAutoPopover: Bool
     @State private var didAnimate: Bool = false
+    @State private var autoPopoverTask: Task<Void, Never>?
     
     private let category: PropertyCategory
     private let item: PropertyItem
+    private let isFirst: Bool
     
     private let daysLeft: Int
     private let daysLeftText: String
@@ -22,11 +25,15 @@ struct BankUpcomingPaymentCard: View {
     init(
         category: PropertyCategory,
         item: PropertyItem,
+        isFirst: Bool = false,
         popoverContext: Binding<PopoverIdentifiable?> = .constant(nil),
+        didShowAutoPopover: Binding<Bool> = .constant(false)
     ) {
         self.category = category
         self.item = item
+        self.isFirst = isFirst
         self._popoverContext = popoverContext
+        self._didShowAutoPopover = didShowAutoPopover
         
         self.daysLeft = Date.daysUntil(item.paymentDate ?? .now)
         self.daysLeftText = Date.daysRemaining(until: item.paymentDate ?? .now)
@@ -56,6 +63,20 @@ struct BankUpcomingPaymentCard: View {
                 .fill(Color.BackColors.backDefault)
         }
         .frame(width: 160, height: 180)
+        .onAppear {
+            guard isFirst, !didShowAutoPopover, popoverContext == nil else { return }
+            didShowAutoPopover = true
+            autoPopoverTask?.cancel()
+            autoPopoverTask = Task {
+                try? await Task.sleep(for: .milliseconds(250))
+                guard !Task.isCancelled else { return }
+                popoverContext = PopoverIdentifiable(category: category, item: item)
+            }
+        }
+        .onDisappear {
+            autoPopoverTask?.cancel()
+            autoPopoverTask = nil
+        }
     }
     
     private var titleView: some View {
