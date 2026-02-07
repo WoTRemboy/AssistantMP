@@ -143,6 +143,7 @@ final class Texts {
         static let addPlaceholder = "Статик ID игрока для добавления"
         static let membersCount = "Количество участников"
         static let messageAll = "Сообщение всем"
+        static let id = "ID"
 
         enum Tab {
             static let friends = "Друзья"

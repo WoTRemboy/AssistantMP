@@ -7,12 +7,28 @@
 
 import Foundation
 
+import SwiftUI
+
 struct GroupMember: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let staticId: String
-    let isOnline: Bool
+    let isOnline: OnlineStatus
     let unreadCount: Int
+    
+    enum OnlineStatus {
+        case online
+        case away
+        case offline
+        
+        internal var color: Color {
+            switch self {
+            case .online: return .green
+            case .away: return .yellow
+            case .offline: return .secondary
+            }
+        }
+    }
 }
 
 enum GroupCategory: CaseIterable, Hashable {

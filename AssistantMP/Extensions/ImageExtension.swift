@@ -11,6 +11,7 @@ extension Image {
     
     enum General {
         static let magnifyingGlass = Image(systemName: "magnifyingglass")
+        static let trash = Image("GeneralTrash")
     }
     
     enum Opening {
@@ -92,5 +93,13 @@ extension Image {
             static let transfer = Image("BankTransfer")
             static let housePayment = Image("BankHousePayment")
         }
+    }
+    
+    enum Group {
+        static let notification = Image("GroupNotification")
+        static let setup = Image("GroupSetup")
+        static let addPerson = Image("GroupAddPerson")
+        static let personPlaceholder = Image("GroupPersonPlaceholder")
+        static let messages = Image("GroupMessagesCount")
     }
 }
