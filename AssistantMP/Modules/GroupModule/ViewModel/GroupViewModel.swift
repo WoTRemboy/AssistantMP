@@ -30,21 +30,21 @@ final class GroupViewModel: ObservableObject {
 extension GroupViewModel {
     static let sampleMembers: [GroupCategory: [GroupMember]] = [
         .friends: [
-            GroupMember(name: "Mike_Smith", staticId: "10042", isOnline: true, unreadCount: 1),
-            GroupMember(name: "Alex_Johnson", staticId: "15678", isOnline: false, unreadCount: 0),
-            GroupMember(name: "Sarah_Williams", staticId: "23456", isOnline: true, unreadCount: 2),
-            GroupMember(name: "David_Brown", staticId: "34567", isOnline: false, unreadCount: 10),
-            GroupMember(name: "Mike_Smith", staticId: "10042", isOnline: false, unreadCount: 0),
-            GroupMember(name: "Alex_Johnson", staticId: "15678", isOnline: false, unreadCount: 0)
+            GroupMember(name: "Mike_Smith", staticId: "10042", isOnline: .online, unreadCount: 1),
+            GroupMember(name: "Alex_Johnson", staticId: "15678", isOnline: .offline, unreadCount: 0),
+            GroupMember(name: "Sarah_Williams", staticId: "23456", isOnline: .away, unreadCount: 2),
+            GroupMember(name: "David_Brown", staticId: "34567", isOnline: .offline, unreadCount: 10),
+            GroupMember(name: "Mike_Smith", staticId: "10042", isOnline: .online, unreadCount: 0),
+            GroupMember(name: "Alex_Johnson", staticId: "15678", isOnline: .offline, unreadCount: 0)
         ],
         .work: [
-            GroupMember(name: "Project_Team", staticId: "90001", isOnline: false, unreadCount: 0)
+            GroupMember(name: "Project_Team", staticId: "90001", isOnline: .away, unreadCount: 0)
         ],
         .family: [
-            GroupMember(name: "Anna_Smith", staticId: "44001", isOnline: true, unreadCount: 0)
+            GroupMember(name: "Anna_Smith", staticId: "44001", isOnline: .offline, unreadCount: 5)
         ],
         .clan: [
-            GroupMember(name: "Clan_Leader", staticId: "77777", isOnline: true, unreadCount: 5)
+            GroupMember(name: "Clan_Leader", staticId: "77777", isOnline: .offline, unreadCount: 0)
         ]
     ]
 }
