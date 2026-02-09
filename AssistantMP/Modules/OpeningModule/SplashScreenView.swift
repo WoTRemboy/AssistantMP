@@ -11,7 +11,7 @@ struct SplashScreenView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.BackColors.backDefault)
+                .fill(Color.Back.backDefault)
             
             Image.Opening.logo
         }

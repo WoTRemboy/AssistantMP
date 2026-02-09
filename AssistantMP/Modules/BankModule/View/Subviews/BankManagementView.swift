@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BankManagementView: View {
     
+    @ObservedObject var viewModel: BankViewModel
     @State private var didAnimate: Bool = false
     private let amount = 12_500_000
     
@@ -17,10 +18,20 @@ struct BankManagementView: View {
             balanceCard
             VStack(spacing: 8) {
                 actionButton(for: .topUp) {}
-                actionButton(for: .transfer) {}
+                actionButton(for: .transfer) {
+                    viewModel.openTransferAlert()
+                }
             }
         }
         .frame(maxHeight: 112)
+        .alert(isPresented: $viewModel.isTransferAlertPresented, onDismiss: {
+            viewModel.closeTransferAlert()
+        }) {
+            transferAlertView
+                .transition(.blurReplace.combined(with: .push(from: .bottom)))
+        } background: {
+            Color.black.opacity(0.35)
+        }
     }
     
     private var balanceCard: some View {
@@ -29,7 +40,7 @@ struct BankManagementView: View {
                 
             Text(Texts.Bank.balance)
                 .font(.system(size: 18))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -44,7 +55,7 @@ struct BankManagementView: View {
     private var countingText: some View {
         CountingText(value: didAnimate ? Double(amount) : 0)
             .font(.system(size: 25, weight: .bold))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .lineLimit(1)
             .minimumScaleFactor(0.3)
         
@@ -68,20 +79,24 @@ struct BankManagementView: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
             }
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundStyle(Color.Label.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .contentShape(Rectangle())
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(type.color)
+            )
         }
         .buttonStyle(.plain)
-        .background(
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(type.color)
-        )
+    }
+    
+    private var transferAlertView: some View {
+        BankTransferAlertView(viewModel: viewModel)
     }
 }
 
 #Preview {
-    BankManagementView()
+    BankManagementView(viewModel: BankViewModel())
         .padding(.horizontal, 8)
 }

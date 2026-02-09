@@ -87,6 +87,7 @@ final class Texts {
     
     enum Property {
         static let title = "Информация о доме"
+        static let shortTitle = "Дом"
         static let address = "Адрес"
         static let owner = "Владелец"
         static let status = "Статус дома"
@@ -98,6 +99,12 @@ final class Texts {
         static let deadline = "Срок оплаты"
         static let date = "Оплата истекает"
         static let remaining = "Осталось"
+        
+        enum Noun {
+            static let house = "дома"
+            static let business = "бизнеса"
+            static let transport = "транспорта"
+        }
     }
     
     enum Bank {
@@ -108,11 +115,41 @@ final class Texts {
         static let topUp = "Пополнить"
         static let transfer = "Перевести"
         
+        static let upcomingPayments = "Ближайшие платежи"
+        
+        enum Transfer {
+            static let title = "Перевод игроку"
+            static let idPlaceholder = "Введите статик ID"
+            static let amountPlaceholder = "Введите сумму"
+            static let cancel = "Отмена"
+            static let send = "Отправить"
+            static let userName = "Sasha_Williams"
+            static let success = "Успешный перевод"
+        }
+        
         enum Transaction {
             static let title = "Последние транзакции"
             static let income = "Пополнение"
             static let transfer = "Перевод"
             static let housePayment = "Оплата дома"
+            
+            static let warning = "Внимание!"
+            static let remaining = "Для оплаты осталось"
+        }
+    }
+    
+    enum Group {
+        static let title = "Мои группы"
+        static let addPlaceholder = "Статик ID игрока для добавления"
+        static let membersCount = "Количество участников"
+        static let messageAll = "Сообщение всем"
+        static let id = "ID"
+
+        enum Tab {
+            static let friends = "Друзья"
+            static let work = "Работа"
+            static let family = "Семья"
+            static let clan = "Банда"
         }
     }
 }

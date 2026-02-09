@@ -28,7 +28,7 @@ struct BankTransactionsView: View {
             }
             .padding(.vertical, 8)
             .background(
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Color(.systemGray5))
             )
         }
@@ -61,7 +61,7 @@ struct TransactionRow: View {
             
             Text(DateFormatter.dayMonthYearTime.string(from: transaction.date))
                 .font(.system(size: 16))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
         }
     }
     

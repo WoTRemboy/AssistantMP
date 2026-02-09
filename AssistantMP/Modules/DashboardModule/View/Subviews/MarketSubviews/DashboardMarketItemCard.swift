@@ -71,12 +71,12 @@ struct MarketItemCard: View {
         VStack(alignment: .leading, spacing: 2) {
             Text("$\( NumberFormatter.bankGrouping.string(from: NSNumber(value: item.price)) ?? "\(item.price)")")
                 .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .minimumScaleFactor(0.5)
             
             Text(item.title)
                 .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
         }
         .lineLimit(1)
     }
@@ -89,7 +89,7 @@ struct MarketItemCard: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.status.title)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(Color.LabelColors.labelPrimary)
+                    .foregroundStyle(Color.Label.primary)
                 
                 switch item.status {
                 case .active(let end), .expiring(let end):

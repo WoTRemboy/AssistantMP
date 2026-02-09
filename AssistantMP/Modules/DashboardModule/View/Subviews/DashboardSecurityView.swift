@@ -49,7 +49,7 @@ struct DashboardSecurityView: View {
         } label: {
             Text(Texts.Dashboard.Security.password)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.3)
             
@@ -69,7 +69,7 @@ struct DashboardSecurityView: View {
         } label: {
             Text(Texts.Dashboard.Security.twoFactor)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelReversed)
+                .foregroundStyle(Color.Label.reversed)
                 .lineLimit(1)
             
                 .padding(.horizontal, 16)

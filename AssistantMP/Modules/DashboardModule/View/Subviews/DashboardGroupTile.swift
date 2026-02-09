@@ -11,13 +11,24 @@ struct DashboardGroupTile: View {
     
     private let type: DashboardGroup
     private let notification: Bool
+    private let action: () -> Void
     
-    init(type: DashboardGroup, notification: Bool) {
+    init(type: DashboardGroup, notification: Bool, action: @escaping () -> Void) {
         self.type = type
         self.notification = notification
+        self.action = action
     }
     
     internal var body: some View {
+        Button {
+            action()
+        } label: {
+            content
+        }
+        .buttonStyle(.plain)
+    }
+    
+    private var content: some View {
         ZStack(alignment: .top) {
             image
             titleLabel
@@ -41,7 +52,7 @@ struct DashboardGroupTile: View {
     private var titleLabel: some View {
         Text(type.title)
             .font(.system(size: 20, weight: .medium))
-            .foregroundStyle(Color.LabelColors.labelPrimary)
+            .foregroundStyle(Color.Label.primary)
             .lineLimit(2)
             .multilineTextAlignment(.center)
     }
@@ -62,8 +73,8 @@ struct DashboardGroupTile: View {
 
 #Preview {
     HStack {
-        DashboardGroupTile(type: .jobs, notification: true)
-        DashboardGroupTile(type: .games, notification: true)
-        DashboardGroupTile(type: .friends, notification: true)
+        DashboardGroupTile(type: .jobs, notification: true, action: {})
+        DashboardGroupTile(type: .games, notification: true, action: {})
+        DashboardGroupTile(type: .groups, notification: true, action: {})
     }
 }

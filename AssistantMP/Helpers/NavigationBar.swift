@@ -54,7 +54,7 @@ struct NavigationBar<Leading : View, Center : View, Trailing : View> : View {
             .padding(.horizontal)
             .clipped()
             .background(
-                Color.BackColors.backDefault
+                Color.Back.backDefault
             )
         }
     }

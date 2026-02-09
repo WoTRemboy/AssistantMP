@@ -10,6 +10,7 @@ import SwiftUI
 struct BankView: View {
     
     @EnvironmentObject private var appRouter: AppRouter
+    @StateObject private var viewModel = BankViewModel()
     @State private var offset: CGFloat = 0
     
     internal var body: some View {
@@ -17,6 +18,7 @@ struct BankView: View {
             VStack(spacing: 16) {
                 title
                 managementView
+                upcomingPaymentsView
                 operationsView
             }
             .padding(.horizontal)
@@ -50,7 +52,10 @@ struct BankView: View {
     }
     
     private var managementView: some View {
-        BankManagementView()
+        BankManagementView(viewModel: viewModel)
+    }
+    private var upcomingPaymentsView: some View {
+        BankUpcomingPaymentsView()
     }
     
     private var operationsView: some View {

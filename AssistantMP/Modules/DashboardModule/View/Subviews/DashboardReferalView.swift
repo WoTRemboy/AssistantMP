@@ -56,14 +56,14 @@ struct DashboardReferalView: View {
             
             Text(Texts.Dashboard.Referal.link)
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(Color.LabelColors.labelPrimary)
+                .foregroundStyle(Color.Label.primary)
                 .lineLimit(1)
         }
         .padding(.horizontal, 30)
         .padding(.vertical, 12)
         .background(
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(Color.BackColors.backDefault)
+                .fill(Color.Back.backDefault)
         )
     }
 }

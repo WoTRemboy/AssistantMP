@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     
+    @EnvironmentObject private var appRouter: AppRouter
     @StateObject private var viewModel = DashboardViewModel()
     
     internal var body: some View {
@@ -25,24 +26,19 @@ struct DashboardView: View {
         }
         .safeAreaInset(edge: .bottom) {
             bottomActionBar
-                .background(Color.BackColors.backDefault)
+                .background(Color.Back.backDefault)
         }
         .safeAreaInset(edge: .top) {
             DashboardCustomNavBar(username: nil)
-        }
-        .alert(isPresented: $viewModel.paymentAlertShow) {
-            paymentAlert
-                .transition(.blurReplace.combined(with: .push(from: .bottom)))
-        } background: {
-            Rectangle()
-                .fill(.primary.opacity(0.35))
         }
     }
     
     private var groupTiles: some View {
         HStack {
             ForEach(DashboardGroup.allCases, id: \.self) { type in
-                DashboardGroupTile(type: type, notification: true)
+                DashboardGroupTile(type: type, notification: true) {
+                    type.performAction(appRouter: appRouter)
+                }
             }
         }
     }
@@ -56,29 +52,18 @@ struct DashboardView: View {
                 Text(Texts.Dashboard.wallet)
                     .font(.system(size: 18, weight: .bold))
             }
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundStyle(Color.Label.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .contentShape(Rectangle())
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color.black)
+            )
         }
         .buttonStyle(.plain)
-        .background(
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(Color.black)
-        )
         .padding(.horizontal)
         .padding(.top, 8)
-    }
-    
-    private var paymentAlert: some View {
-        CustomPaymentWarning(
-            title: "\(Texts.Property.address): \(viewModel.selectedProperty.title).",
-            content: Texts.Property.warningShort,
-            value: "\(Date.daysRemaining(until: viewModel.selectedProperty.paymentDate ?? .now))",
-            titleError: Texts.Property.warningError,
-            image: Image.Alert.warning) {
-                viewModel.paymentAlertShowToggle()
-            }
     }
 }
 

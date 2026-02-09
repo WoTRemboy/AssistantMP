@@ -49,12 +49,12 @@ struct PropertyAddressView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(viewModel.selectedProperty.title)
                     .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(Color.LabelColors.labelPrimary)
+                    .foregroundStyle(Color.Label.primary)
                     .contentTransition(.numericText())
                 
                 Text(Texts.Property.address)
                     .font(.system(size: 16, weight: .regular))
-                    .foregroundStyle(Color.LabelColors.labelSecondary)
+                    .foregroundStyle(Color.Label.secondary)
             }
             Spacer()
             Image.Chevron.down
@@ -72,11 +72,11 @@ struct PropertyAddressView: View {
         } label: {
             HStack(spacing: 12) {
                 (viewModel.selectedProperty == property ? Image.Selector.selected : Image.Selector.unselected)
-                    .foregroundStyle(viewModel.selectedProperty == property ? Color.LabelColors.labelWhite : Color.LabelColors.labelSecondary)
+                    .foregroundStyle(viewModel.selectedProperty == property ? Color.Label.white : Color.Label.secondary)
                 
                 Text(property.title)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(viewModel.selectedProperty == property ? Color.LabelColors.labelWhite : Color.LabelColors.labelPrimary)
+                    .foregroundStyle(viewModel.selectedProperty == property ? Color.Label.white : Color.Label.primary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(12)
@@ -84,7 +84,7 @@ struct PropertyAddressView: View {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(viewModel.selectedProperty == property ? Color.black.opacity(0.9) : Color(.systemGray5))
             )
-            .foregroundStyle(viewModel.selectedProperty == property ? Color.white : Color.LabelColors.labelPrimary)
+            .foregroundStyle(viewModel.selectedProperty == property ? Color.white : Color.Label.primary)
         }
         .buttonStyle(.plain)
     }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ToastSuccessIcon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

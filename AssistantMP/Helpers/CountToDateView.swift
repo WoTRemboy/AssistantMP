@@ -19,7 +19,7 @@ struct CountdownToDate: View {
             let remaining = max(0, Int(endDate.timeIntervalSince(context.date)))
             Text(CountdownToDate.format(seconds: remaining))
                 .font(.system(size: 12, weight: .regular))
-                .foregroundStyle(Color.LabelColors.labelSecondary)
+                .foregroundStyle(Color.Label.secondary)
                 .monospacedDigit()
                 .contentTransition(.numericText())
                 .animation(.snappy(duration: 0.25, extraBounce: 0), value: remaining)

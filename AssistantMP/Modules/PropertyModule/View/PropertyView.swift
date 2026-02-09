@@ -85,7 +85,7 @@ struct PropertyView: View {
     }
     
     private var propertyNavBar: some View {
-        PropertyCustomNavBar(title: Texts.Property.title, offset: offset)
+        PropertyCustomNavBar(title: Texts.Property.shortTitle, offset: offset)
     }
 }
 

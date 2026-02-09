@@ -11,7 +11,7 @@ extension Color {
     
     // MARK: - Back Colors
     
-    enum BackColors {
+    enum Back {
         static let elevated = Color("BackElevated")
         static let iOSPrimary = Color("BackiOSPrimary")
         static let primary = Color("BackPrimary")
@@ -21,20 +21,26 @@ extension Color {
     
     // MARK: - Label Colors
     
-    enum LabelColors {
-        static let labelDisable = Color("LabelDisable")
-        static let labelDetails = Color("LabelDetails")
-        static let labelPrimary = Color("LabelPrimary")
-        static let labelSecondary = Color("LabelSecondary")
+    enum Label {
+        static let disable = Color("LabelDisable")
+        static let details = Color("LabelDetails")
+        static let primary = Color("LabelPrimary")
+        static let secondary = Color("LabelSecondary")
         
-        static let labelTertiary = Color("LabelTertiary")
-        static let labelReversed = Color("LabelReversed")
+        static let tertiary = Color("LabelTertiary")
+        static let reversed = Color("LabelReversed")
         
-        static let labelBlack = Color("LabelBlack")
-        static let labelWhite = Color("LabelWhite")
-        static let labelGreyLight = Color("LabelGreyLight")
-        static let labelGreyDark = Color("LabelGreyDark")
+        static let black = Color("LabelBlack")
+        static let white = Color("LabelWhite")
+        static let greyLight = Color("LabelGreyLight")
+        static let greyDark = Color("LabelGreyDark")
         
-        static let labelPlaceholder = Color("LabelPlaceholder")
+        static let placeholder = Color("LabelPlaceholder")
+    }
+    
+    // MARK: - Shadow Colors
+    
+    enum Shadow {
+        static let popup = Color("ShadowPopup")
     }
 }
