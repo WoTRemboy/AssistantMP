@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 import SwiftUI
 
@@ -52,6 +53,61 @@ enum GroupCategory: CaseIterable, Hashable {
             return true
         case .work, .clan:
             return false
+        }
+    }
+}
+
+struct ManageGroupItem: Identifiable, Hashable {
+    let id = UUID()
+    let title: String
+    let count: Int
+    let leadingIcon: ManageGroupIcon?
+    let trailingIcon: ManageGroupIcon
+    let category: GroupCategory?
+
+    init(
+        title: String,
+        count: Int,
+        leadingIcon: ManageGroupIcon?,
+        trailingIcon: ManageGroupIcon,
+        category: GroupCategory? = nil
+    ) {
+        self.title = title
+        self.count = count
+        self.leadingIcon = leadingIcon
+        self.trailingIcon = trailingIcon
+        self.category = category
+    }
+
+    init(
+        category: GroupCategory,
+        count: Int,
+        leadingIcon: ManageGroupIcon?,
+        trailingIcon: ManageGroupIcon
+    ) {
+        self.init(
+            title: category.title,
+            count: count,
+            leadingIcon: leadingIcon,
+            trailingIcon: trailingIcon,
+            category: category
+        )
+    }
+}
+
+enum ManageGroupIcon {
+    case pencil
+    case trash
+    case arrowRightSquare
+
+    var image: Image {
+        switch self {
+        case .pencil:
+            return Image(systemName: "pencil")
+        case .trash:
+            return Image(systemName: "trash")
+        case .arrowRightSquare:
+            return Image(systemName: "arrow.right.square")
         }
     }
 }

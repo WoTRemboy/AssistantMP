@@ -7,10 +7,19 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class GroupViewModel: ObservableObject {
     @Published var selectedCategory: GroupCategory = .friends
     @Published var addMemberId: String = ""
+    @Published var createdGroups: [ManageGroupItem] = [
+        .init(category: .family, count: 3, leadingIcon: .pencil, trailingIcon: .trash),
+        .init(title: "Братва", count: 5, leadingIcon: .pencil, trailingIcon: .trash)
+    ]
+    @Published var memberGroups: [ManageGroupItem] = [
+        .init(category: .friends, count: 8, leadingIcon: nil, trailingIcon: .arrowRightSquare),
+        .init(category: .work, count: 12, leadingIcon: nil, trailingIcon: .arrowRightSquare)
+    ]
 
     var members: [GroupCategory: [GroupMember]] = GroupViewModel.sampleMembers
 
@@ -22,8 +31,24 @@ final class GroupViewModel: ObservableObject {
         "\(Texts.Group.membersCount): \(visibleMembers.count)"
     }
 
+    var createdTitleText: String {
+        "Созданные мной группы: \(createdGroups.count)"
+    }
+
+    var memberTitleText: String {
+        "Группы, в которых я состою: \(memberGroups.count)"
+    }
+
     func addMember() {
         addMemberId = ""
+    }
+
+    func moveCreatedGroups(from source: IndexSet, to destination: Int) {
+        createdGroups.move(fromOffsets: source, toOffset: destination)
+    }
+
+    func moveMemberGroups(from source: IndexSet, to destination: Int) {
+        memberGroups.move(fromOffsets: source, toOffset: destination)
     }
 }
 

@@ -61,6 +61,10 @@
 		63679D672F33FBED00B75450 /* GroupCustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63679D662F33FBE700B75450 /* GroupCustomNavBar.swift */; };
 		63679D6A2F33FD6800B75450 /* GroupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63679D692F33FD6800B75450 /* GroupModels.swift */; };
 		63679D6D2F33FD8700B75450 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63679D6C2F33FD8700B75450 /* GroupViewModel.swift */; };
+		63B2EDE62F3CD29C00432D87 /* GroupManageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2EDE52F3CD29C00432D87 /* GroupManageSheetView.swift */; };
+		63B2EDEB2F3CDBDA00432D87 /* ReordableForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2EDEA2F3CDBD400432D87 /* ReordableForEach.swift */; };
+		63B2EDED2F3CDBE200432D87 /* ReorderableDragRelocateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2EDEC2F3CDBE200432D87 /* ReorderableDragRelocateDelegate.swift */; };
+		63B2EDEF2F3CDBEB00432D87 /* ReorderableDropOutsideDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2EDEE2F3CDBEA00432D87 /* ReorderableDropOutsideDelegate.swift */; };
 		63C501F62F31146E001A2690 /* PropertyOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F52F31146E001A2690 /* PropertyOwnerView.swift */; };
 		63C501F82F3114BC001A2690 /* PropertyLockStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F72F3114BC001A2690 /* PropertyLockStatusView.swift */; };
 		63C501FA2F3119E0001A2690 /* PropertyPaymentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C501F92F3119E0001A2690 /* PropertyPaymentSection.swift */; };
@@ -144,6 +148,10 @@
 		63679D662F33FBE700B75450 /* GroupCustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCustomNavBar.swift; sourceTree = "<group>"; };
 		63679D692F33FD6800B75450 /* GroupModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModels.swift; sourceTree = "<group>"; };
 		63679D6C2F33FD8700B75450 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		63B2EDE52F3CD29C00432D87 /* GroupManageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupManageSheetView.swift; sourceTree = "<group>"; };
+		63B2EDEA2F3CDBD400432D87 /* ReordableForEach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReordableForEach.swift; sourceTree = "<group>"; };
+		63B2EDEC2F3CDBE200432D87 /* ReorderableDragRelocateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderableDragRelocateDelegate.swift; sourceTree = "<group>"; };
+		63B2EDEE2F3CDBEA00432D87 /* ReorderableDropOutsideDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderableDropOutsideDelegate.swift; sourceTree = "<group>"; };
 		63C501F52F31146E001A2690 /* PropertyOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyOwnerView.swift; sourceTree = "<group>"; };
 		63C501F72F3114BC001A2690 /* PropertyLockStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLockStatusView.swift; sourceTree = "<group>"; };
 		63C501F92F3119E0001A2690 /* PropertyPaymentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyPaymentSection.swift; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 		63095F2F2F22609600395EE7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				63B2EDE92F3CDBC700432D87 /* ReordableDelegates */,
 				63679D552F33F3A300B75450 /* InternalNotifications */,
 				63DA8AB32F2E7165002EEF62 /* FullSwipeNavigation */,
 				63095F3B2F228A8900395EE7 /* CountToDateView.swift */,
@@ -451,6 +460,7 @@
 				63EB77F12F3774D7008E60B3 /* GroupAddMemberView.swift */,
 				63EB77F32F378214008E60B3 /* GroupMemberRowView.swift */,
 				63EB77F52F3792B5008E60B3 /* GroupMessageAllButton.swift */,
+				63B2EDE52F3CD29C00432D87 /* GroupManageSheetView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -469,6 +479,16 @@
 				63679D6C2F33FD8700B75450 /* GroupViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63B2EDE92F3CDBC700432D87 /* ReordableDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				63B2EDEA2F3CDBD400432D87 /* ReordableForEach.swift */,
+				63B2EDEC2F3CDBE200432D87 /* ReorderableDragRelocateDelegate.swift */,
+				63B2EDEE2F3CDBEA00432D87 /* ReorderableDropOutsideDelegate.swift */,
+			);
+			path = ReordableDelegates;
 			sourceTree = "<group>";
 		};
 		63C501FD2F314933001A2690 /* BankModule */ = {
@@ -690,6 +710,7 @@
 				634027042F23BFA500653F2D /* PropertyModel.swift in Sources */,
 				634E86B72F269EA900F56320 /* ProfileCustomNavBar.swift in Sources */,
 				63095F2C2F22592C00395EE7 /* DashboardBankView.swift in Sources */,
+				63B2EDED2F3CDBE200432D87 /* ReorderableDragRelocateDelegate.swift in Sources */,
 				63679D512F33ACAA00B75450 /* BankTransferAlertView.swift in Sources */,
 				63DA8ABE2F2F7B77002EEF62 /* PropertyView.swift in Sources */,
 				63EB77F62F3792B6008E60B3 /* GroupMessageAllButton.swift in Sources */,
@@ -718,13 +739,16 @@
 				63095F2E2F225D9900395EE7 /* NumberFormatterExtension.swift in Sources */,
 				634027102F2524F900653F2D /* AccountPropertyRow.swift in Sources */,
 				63C502042F314CFB001A2690 /* BankManagementView.swift in Sources */,
+				63B2EDE62F3CD29C00432D87 /* GroupManageSheetView.swift in Sources */,
 				63DA8AB92F2E7946002EEF62 /* AttachGestureView.swift in Sources */,
 				6315ECA12F1FDD9E00DC595D /* DashboardView.swift in Sources */,
 				63207BE72F3292390033A195 /* BankPaymentPopoverModel.swift in Sources */,
+				63B2EDEB2F3CDBDA00432D87 /* ReordableForEach.swift in Sources */,
 				63C501FA2F3119E0001A2690 /* PropertyPaymentSection.swift in Sources */,
 				63C501F82F3114BC001A2690 /* PropertyLockStatusView.swift in Sources */,
 				634E86A22F2696B600F56320 /* DestinationFactory.swift in Sources */,
 				63C501F62F31146E001A2690 /* PropertyOwnerView.swift in Sources */,
+				63B2EDEF2F3CDBEB00432D87 /* ReorderableDropOutsideDelegate.swift in Sources */,
 				6315ECAD2F1FE15C00DC595D /* ImageExtension.swift in Sources */,
 				63DA8AC12F2F7EC5002EEF62 /* PropertyCustomNavBar.swift in Sources */,
 				63679D602F33F4CD00B75450 /* RootView.swift in Sources */,

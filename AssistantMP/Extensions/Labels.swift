@@ -151,5 +151,12 @@ final class Texts {
             static let family = "Семья"
             static let clan = "Банда"
         }
+
+        enum ManageSheet {
+            static let title = "Управление группами"
+            static let instruction = "Нажмите и удерживайте для перетаскивания\nи изменения порядка"
+            static let createGroup = "Создать группу"
+            static let cancel = "Отменить"
+        }
     }
 }

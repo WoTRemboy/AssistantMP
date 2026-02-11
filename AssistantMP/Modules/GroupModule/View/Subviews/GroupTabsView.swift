@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct GroupTabsView: View {
+    @ObservedObject var viewModel: GroupViewModel
     @Binding var selected: GroupCategory
+    
     @Namespace private var selectionNamespace
-
+    @State private var isManagingGroupsPresented = false
+    
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
@@ -32,11 +35,14 @@ struct GroupTabsView: View {
                 }
             }
         }
+        .sheet(isPresented: $isManagingGroupsPresented) {
+            GroupManageSheetView(viewModel: viewModel)
+        }
     }
     
     private var setupButton: some View {
         Button {
-            
+            isManagingGroupsPresented = true
         } label: {
             Image.Group.setup
         }
@@ -86,6 +92,6 @@ struct GroupTabsView: View {
 }
 
 #Preview {
-    GroupTabsView(selected: .constant(.work))
+    GroupTabsView(viewModel: GroupViewModel(), selected: .constant(.work))
         .frame(height: 42)
 }

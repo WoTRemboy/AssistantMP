@@ -16,7 +16,7 @@ struct GroupView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
                 titleLabel
-                GroupTabsView(selected: $viewModel.selectedCategory)
+                GroupTabsView(viewModel: viewModel, selected: $viewModel.selectedCategory)
                 GroupAddMemberView(
                     text: $viewModel.addMemberId,
                     action: viewModel.addMember
