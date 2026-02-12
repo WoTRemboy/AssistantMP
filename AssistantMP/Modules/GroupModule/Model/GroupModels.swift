@@ -103,11 +103,11 @@ enum ManageGroupIcon {
     var image: Image {
         switch self {
         case .pencil:
-            return Image(systemName: "pencil")
+            return Image.General.edit
         case .trash:
-            return Image(systemName: "trash")
+            return Image.General.trash
         case .arrowRightSquare:
-            return Image(systemName: "arrow.right.square")
+            return Image.General.leave
         }
     }
 }

@@ -94,7 +94,7 @@ struct PropertyPaymentSection: View {
         Text("\(Texts.Property.remaining) \(daysLeftText)")
             .font(.system(size: 14, weight: .bold))
             .foregroundStyle(daysLeftWarning.foreground)
-            .contentTransition(.opacity)
+            .contentTransition(.numericText(value: paymentDate.timeIntervalSince1970))
             .animation(.easeInOut(duration: 0.2), value: daysLeftText)
         
             .padding(.horizontal, 16)

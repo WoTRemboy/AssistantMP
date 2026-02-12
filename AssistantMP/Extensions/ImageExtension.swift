@@ -12,6 +12,8 @@ extension Image {
     enum General {
         static let magnifyingGlass = Image(systemName: "magnifyingglass")
         static let trash = Image("GeneralTrash")
+        static let edit = Image("GeneralEdit")
+        static let leave = Image("GeneralLeave")
     }
     
     enum Opening {

@@ -45,10 +45,12 @@ final class GroupViewModel: ObservableObject {
 
     func moveCreatedGroups(from source: IndexSet, to destination: Int) {
         createdGroups.move(fromOffsets: source, toOffset: destination)
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
     func moveMemberGroups(from source: IndexSet, to destination: Int) {
         memberGroups.move(fromOffsets: source, toOffset: destination)
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }
 

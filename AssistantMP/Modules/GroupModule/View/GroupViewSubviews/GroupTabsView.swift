@@ -12,9 +12,12 @@ struct GroupTabsView: View {
     @Binding var selected: GroupCategory
     
     @Namespace private var selectionNamespace
+    @Namespace private var manageTransitionNamespace
     @State private var isManagingGroupsPresented = false
+
+    private let manageTransitionId = "GroupManageSheetTransition"
     
-    var body: some View {
+    internal var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -35,8 +38,9 @@ struct GroupTabsView: View {
                 }
             }
         }
-        .sheet(isPresented: $isManagingGroupsPresented) {
+        .fullScreenCover(isPresented: $isManagingGroupsPresented) {
             GroupManageSheetView(viewModel: viewModel)
+                .navigationTransition(id: manageTransitionId, namespace: manageTransitionNamespace)
         }
     }
     
@@ -48,6 +52,7 @@ struct GroupTabsView: View {
         }
         .contentShape(.rect)
         .buttonStyle(.plain)
+        .navigationTransitionSource(id: manageTransitionId, namespace: manageTransitionNamespace)
     }
     
     private func cells(proxy: ScrollViewProxy) -> some View {
@@ -95,3 +100,5 @@ struct GroupTabsView: View {
     GroupTabsView(viewModel: GroupViewModel(), selected: .constant(.work))
         .frame(height: 42)
 }
+
+
