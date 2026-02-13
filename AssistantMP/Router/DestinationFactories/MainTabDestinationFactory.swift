@@ -18,6 +18,10 @@ struct MainTabDestinationFactory {
             GroupView()
                 .environmentObject(appRouter)
             
+        case .chat(let member):
+            GroupChatView(member: member)
+                .environmentObject(appRouter)
+            
         case .profile:
             ProfileView()
                 .environmentObject(appRouter)

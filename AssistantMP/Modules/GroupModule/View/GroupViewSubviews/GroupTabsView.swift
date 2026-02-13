@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct GroupTabsView: View {
+    @ObservedObject var viewModel: GroupViewModel
     @Binding var selected: GroupCategory
+    
     @Namespace private var selectionNamespace
+    @Namespace private var manageTransitionNamespace
+    @State private var isManagingGroupsPresented = false
 
-    var body: some View {
+    private let manageTransitionId = "GroupManageSheetTransition"
+    
+    internal var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -32,16 +38,21 @@ struct GroupTabsView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $isManagingGroupsPresented) {
+            GroupManageSheetView(viewModel: viewModel)
+                .navigationTransition(id: manageTransitionId, namespace: manageTransitionNamespace)
+        }
     }
     
     private var setupButton: some View {
         Button {
-            
+            isManagingGroupsPresented = true
         } label: {
             Image.Group.setup
         }
         .contentShape(.rect)
         .buttonStyle(.plain)
+        .navigationTransitionSource(id: manageTransitionId, namespace: manageTransitionNamespace)
     }
     
     private func cells(proxy: ScrollViewProxy) -> some View {
@@ -86,6 +97,8 @@ struct GroupTabsView: View {
 }
 
 #Preview {
-    GroupTabsView(selected: .constant(.work))
+    GroupTabsView(viewModel: GroupViewModel(), selected: .constant(.work))
         .frame(height: 42)
 }
+
+

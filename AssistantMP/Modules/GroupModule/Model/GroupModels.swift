@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 import SwiftUI
 
@@ -13,13 +14,21 @@ struct GroupMember: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let staticId: String
-    let isOnline: OnlineStatus
+    let status: OnlineStatus
     let unreadCount: Int
     
     enum OnlineStatus {
         case online
         case away
         case offline
+        
+        internal var title: String {
+            switch self {
+            case .online: return Texts.Player.Status.online
+            case .away: return Texts.Player.Status.away
+            case .offline: return Texts.Player.Status.offline
+            }
+        }
         
         internal var color: Color {
             switch self {
@@ -29,6 +38,13 @@ struct GroupMember: Identifiable, Hashable {
             }
         }
     }
+    
+    static let sample: GroupMember = .init(
+        name: "Mike_Smith",
+        staticId: "123",
+        status: .online,
+        unreadCount: 0
+    )
 }
 
 enum GroupCategory: CaseIterable, Hashable {
@@ -52,6 +68,61 @@ enum GroupCategory: CaseIterable, Hashable {
             return true
         case .work, .clan:
             return false
+        }
+    }
+}
+
+struct ManageGroupItem: Identifiable, Hashable {
+    let id = UUID()
+    let title: String
+    let count: Int
+    let leadingIcon: ManageGroupIcon?
+    let trailingIcon: ManageGroupIcon
+    let category: GroupCategory?
+
+    init(
+        title: String,
+        count: Int,
+        leadingIcon: ManageGroupIcon?,
+        trailingIcon: ManageGroupIcon,
+        category: GroupCategory? = nil
+    ) {
+        self.title = title
+        self.count = count
+        self.leadingIcon = leadingIcon
+        self.trailingIcon = trailingIcon
+        self.category = category
+    }
+
+    init(
+        category: GroupCategory,
+        count: Int,
+        leadingIcon: ManageGroupIcon?,
+        trailingIcon: ManageGroupIcon
+    ) {
+        self.init(
+            title: category.title,
+            count: count,
+            leadingIcon: leadingIcon,
+            trailingIcon: trailingIcon,
+            category: category
+        )
+    }
+}
+
+enum ManageGroupIcon {
+    case pencil
+    case trash
+    case arrowRightSquare
+
+    var image: Image {
+        switch self {
+        case .pencil:
+            return Image.General.edit
+        case .trash:
+            return Image.General.trash
+        case .arrowRightSquare:
+            return Image.General.leave
         }
     }
 }
