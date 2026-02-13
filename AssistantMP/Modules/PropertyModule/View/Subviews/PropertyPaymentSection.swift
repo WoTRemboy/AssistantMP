@@ -77,13 +77,16 @@ struct PropertyPaymentSection: View {
     }
     
     private var paymentDateView: some View {
-        VStack(alignment: .leading, spacing: 3) {
+        let dateText = DateFormatter.shortPayment.string(from: paymentDate)
+        return VStack(alignment: .leading, spacing: 3) {
             Text("\(Texts.Property.date):")
                 .font(.system(size: 14, weight: .regular))
                 .foregroundStyle(Color.Label.secondary)
-            Text("\(DateFormatter.shortPayment.string(from: paymentDate))")
+            Text(dateText)
                 .font(.system(size: 14, weight: .bold))
                 .foregroundStyle(Color.Label.primary)
+                .contentTransition(.opacity)
+                .animation(.easeInOut(duration: 0.2), value: dateText)
         }
     }
     
@@ -91,6 +94,8 @@ struct PropertyPaymentSection: View {
         Text("\(Texts.Property.remaining) \(daysLeftText)")
             .font(.system(size: 14, weight: .bold))
             .foregroundStyle(daysLeftWarning.foreground)
+            .contentTransition(.numericText(value: paymentDate.timeIntervalSince1970))
+            .animation(.easeInOut(duration: 0.2), value: daysLeftText)
         
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
