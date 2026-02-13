@@ -8,32 +8,48 @@
 import SwiftUI
 
 struct GroupMemberRowView: View {
-    let member: GroupMember
+    
+    @EnvironmentObject private var appRouter: AppRouter
+    private let member: GroupMember
+    
+    init(member: GroupMember) {
+        self.member = member
+    }
 
     var body: some View {
         HStack(spacing: 2) {
-            HStack(spacing: 6) {
-                avatar
-                memberInfo
-                Spacer()
-                messagesCountImage
+            Button {
+                appRouter.push(.chat(member: member), in: .main)
+            } label: {
+                personContent
             }
-            .padding(16)
-            .background(
-                Color(.systemGray5)
-            )
+            .buttonStyle(.plain)
+            
             deleteButton
         }
         .clipShape(.rect(cornerRadius: 16))
+    }
+    
+    private var personContent: some View {
+        HStack(spacing: 6) {
+            avatar
+            memberInfo
+            Spacer()
+            messagesCountImage
+        }
+        .padding(16)
+        .background(
+            Color(.systemGray5)
+        )
     }
 
     private var avatar: some View {
         ZStack(alignment: .topTrailing) {
             Image.Group.personPlaceholder
 
-            if member.isOnline != .offline {
+            if member.status != .offline {
                 Circle()
-                    .fill(member.isOnline.color)
+                    .fill(member.status.color)
                     .frame(width: 8, height: 8)
                     .overlay(
                         Circle()
@@ -89,6 +105,7 @@ struct GroupMemberRowView: View {
 }
 
 #Preview {
-    GroupMemberRowView(member: .init(name: "Test_User", staticId: "123", isOnline: .online, unreadCount: 5))
+    GroupMemberRowView(member: .init(name: "Test_User", staticId: "123", status: .online, unreadCount: 5))
         .frame(height: 74)
+        .environmentObject(AppRouter())
 }

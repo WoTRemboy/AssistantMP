@@ -138,6 +138,14 @@ final class Texts {
         }
     }
     
+    enum Player {
+        enum Status {
+            static let online = "Онлайн"
+            static let away = "Отошёл"
+            static let offline = "Не в сети"
+        }
+    }
+    
     enum Group {
         static let title = "Мои группы"
         static let addPlaceholder = "Статик ID игрока для добавления"
@@ -157,6 +165,12 @@ final class Texts {
             static let instruction = "Нажмите и удерживайте для перетаскивания\nи изменения порядка"
             static let createGroup = "Создать группу"
             static let cancel = "Отменить"
+        }
+
+        enum Chat {
+            static let today = "Сегодня"
+            static let unread = "Непрочитанные сообщения"
+            static let placeholder = "Сообщение"
         }
     }
 }

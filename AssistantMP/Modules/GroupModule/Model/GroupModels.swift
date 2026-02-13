@@ -14,13 +14,21 @@ struct GroupMember: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let staticId: String
-    let isOnline: OnlineStatus
+    let status: OnlineStatus
     let unreadCount: Int
     
     enum OnlineStatus {
         case online
         case away
         case offline
+        
+        internal var title: String {
+            switch self {
+            case .online: return Texts.Player.Status.online
+            case .away: return Texts.Player.Status.away
+            case .offline: return Texts.Player.Status.offline
+            }
+        }
         
         internal var color: Color {
             switch self {
@@ -30,6 +38,13 @@ struct GroupMember: Identifiable, Hashable {
             }
         }
     }
+    
+    static let sample: GroupMember = .init(
+        name: "Mike_Smith",
+        staticId: "123",
+        status: .online,
+        unreadCount: 0
+    )
 }
 
 enum GroupCategory: CaseIterable, Hashable {

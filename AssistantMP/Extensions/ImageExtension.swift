@@ -103,5 +103,6 @@ extension Image {
         static let addPerson = Image("GroupAddPerson")
         static let personPlaceholder = Image("GroupPersonPlaceholder")
         static let messages = Image("GroupMessagesCount")
+        static let sendMessage = Image("GroupSendMessage")
     }
 }
